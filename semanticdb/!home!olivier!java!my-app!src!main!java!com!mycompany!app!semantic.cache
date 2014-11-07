@@ -1,0 +1,33 @@
+;; Object app/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "app/"
+  :tables (list 
+   (semanticdb-table "App.java"
+    :major-mode 'jde-mode
+    :tags 
+        '( ("com.mycompany.app" package nil nil [1 27])
+            ("App" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("main" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [103 116]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [78 245]))                  
+                :type "class")
+                nil [56 247]))          
+    :file "App.java"
+    :pointmax 266
+    :fsize 265
+    :lastmodtime '(21594 60684 623737 618000)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!home!olivier!java!my-app!src!main!java!com!mycompany!app!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2"
+  )
