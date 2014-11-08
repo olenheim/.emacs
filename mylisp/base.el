@@ -176,4 +176,4 @@
 (setq c-argdecl-indent 4)  
 (setq c-label-offset -4)  
 (setq c-basic-offset 4)  
-(global-set-key "\C-m" 'reindent-then-newline-and-indent)  
+;;(global-set-key "\C-m" 'reindent-then-newline-and-indent)  

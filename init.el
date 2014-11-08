@@ -71,7 +71,7 @@
    nil 0 nil "_NET_WM_STATE" 32
    '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 
-(my-maximized) 
+;;(my-maximized) 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
