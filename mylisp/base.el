@@ -65,10 +65,10 @@
 ;;auto show row-num  
 ;;自动加载行号  
   
-(partial-completion-mode 1)  
+;;(partial-completion-mode 1)  
 ;;use partial-completion  
   
-(icomplete-mode 1)  
+;;(icomplete-mode 1)  
 ;;use complete-completion  
   
   
@@ -95,8 +95,8 @@
 ;;显示列号  
 (setq column-number-mode t)  
 ;;没列左边显示行号,按f3显示/隐藏行号  
-(require 'setnu)  
-(setnu-mode t)  
+;;(require 'setnu)
+;;(setnu-mode t)  
 ;;(global-set-key[f3] (quote setnu-mode))  
   
 ;;显示标题栏 %f 缓冲区完整路径 %p 页面百分数 %l 行号  
