@@ -1,8 +1,21 @@
 (when (>= emacs-major-version 24)
-    (require 'package) 
-    (package-initialize)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-)  
+  (require 'package) 
+  (package-initialize)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )  
+
+(require 'tramp)
+(defun sudo ()
+  "reopen current file with sudo."
+  (setq sudo-file-real-path
+	(replace-regexp-in-string "\n" ""
+				  (shell-command-to-string (concat "readlink -f " buffer-file-truename))
+				  )
+	)
+  (kill-this-buffer)
+  (find-file (concat "/sudo::" sudo-file-real-path))
+  (interactive)
+  )
 
 ;; jdee  
 (add-to-list 'load-path "~/.emacs.d/jdee-2.4.1/lisp")  
@@ -36,7 +49,7 @@
 (global-set-key (kbd "<f9>") 'my-evil-mode-on)
 (global-set-key (kbd "<f10>") 'my-evil-mode-off)
 
-;grep-find
+					;grep-find
 (global-set-key (kbd "<f3>") 'grep-find)
 
 (global-set-key (kbd "<f1>") 'shell) 
@@ -51,16 +64,16 @@
 (global-set-key (kbd "M--") 'winner-undo)
 (global-set-key (kbd "M-=") 'winner-redo)
 
-;全屏
+					;全屏
 (defun my-fullscreen ()
   (interactive)
   (x-send-client-message
    nil 0 nil "_NET_WM_STATE" 32
    '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-)
+  )
 (global-set-key [f12] 'my-fullscreen)
 
-;最大化
+					;最大化
 (defun my-maximized ()
   (interactive)
   (x-send-client-message
@@ -83,54 +96,55 @@
 (global-set-key (kbd "M-<down>")  'windmove-down)
 
 (defun indent-buffer ()
-"Indent the whole buffer."
-(interactive)
-(save-excursion
-(indent-region (point-min) (point-max) nil)))
+  "Indent the whole buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
 (global-set-key [f8] 'indent-buffer)
 
 ;;copy free
 ;; copy region or whole line
 (global-set-key "\M-w"
-(lambda ()
-  (interactive)
-  (if mark-active
-      (kill-ring-save (region-beginning)
-      (region-end))
-    (progn
-     (kill-ring-save (line-beginning-position)
-     (line-end-position))
-     (message "copied line")))))
+		(lambda ()
+		  (interactive)
+		  (if mark-active
+		      (kill-ring-save (region-beginning)
+				      (region-end))
+		    (progn
+		      (kill-ring-save (line-beginning-position)
+				      (line-end-position))
+		      (message "copied line")))))
 
 
 ;; kill region or whole line
 (global-set-key "\C-w"
-(lambda ()
-  (interactive)
-  (if mark-active
-      (kill-region (region-beginning)
-   (region-end))
-    (progn
-     (kill-region (line-beginning-position)
-  (line-end-position))
-     (message "killed line")))))
+		(lambda ()
+		  (interactive)
+		  (if mark-active
+		      (kill-region (region-beginning)
+				   (region-end))
+		    (progn
+		      (kill-region (line-beginning-position)
+				   (line-end-position))
+		      (message "killed line")))))
 
 
 ;;==========================================================  
 ;;YASnippet的配置  
 ;;==========================================================  
 ;;太强大了，强大的模板功能  
-;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-master")
-;(require 'yasnippet)
-;(setq yas/prompt-functions 
+					;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-master")
+					;(require 'yasnippet)
+					;(setq yas/prompt-functions 
 ;;  '(yas/dropdown-prompt yas/x-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt))
-;(yas/global-mode 1)
-;(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用
+					;(yas/global-mode 1)
+					;(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用
 
 (add-to-list 'load-path "~/.emacs.d/yasnippet")  
 (require 'yasnippet)  
 
 (add-to-list 'load-path "~/.emacs.d/plugins/")
+(require 'decompile)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
 (ac-config-default)
@@ -155,14 +169,14 @@
 ;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
 (defun my-ac-config ()  
   (setq ac-clang-flags  
-        (mapcar(lambda (item)(concat "-I" item))  
-               (split-string  
-                "  
+	(mapcar(lambda (item)(concat "-I" item))  
+	       (split-string  
+		"  
 ")))  
   (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))  
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)  
   ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
- ;; (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)  
+  ;; (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)  
   ;;(add-hook 'css-mode-hook 'ac-css-mode-setup)  
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)  
   (global-auto-complete-mode t))  
@@ -194,8 +208,8 @@
 (require 'sr-speedbar);;这句话是必须的
 (setq sr-speedbar-width 10)
 (global-set-key (kbd "<f6>") (lambda()
-          (interactive)
-          (sr-speedbar-toggle)))
+			       (interactive)
+			       (sr-speedbar-toggle)))
 ;;(add-hook 'after-init-hook '(lambda () (sr-speedbar-toggle)));;开启程序即启用
 
 ;;窗口缩放
