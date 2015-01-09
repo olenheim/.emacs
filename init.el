@@ -65,26 +65,26 @@
 (global-set-key (kbd "M-=") 'winner-redo)
 
 					;全屏
-(defun my-fullscreen ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-  )
-(global-set-key [f12] 'my-fullscreen)
+;;(defun my-fullscreen ()
+;;  (interactive)
+;;  (x-send-client-message
+;;   nil 0 nil "_NET_WM_STATE" 32
+;;   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
+;;  )
+;;(global-set-key [f12] 'my-fullscreen)
 
 					;最大化
-(defun my-maximized ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
+;;(defun my-maximized ()
+;;  (interactive)
+;;  (x-send-client-message
+;;   nil 0 nil "_NET_WM_STATE" 32
+;;   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+;;  (interactive)
+;;  (x-send-client-message
+;;   nil 0 nil "_NET_WM_STATE" 32
+;;   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 
-(my-maximized) 
+;;(my-maximized) 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
