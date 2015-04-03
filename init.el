@@ -26,12 +26,30 @@
   (local-set-key (quote [f7]) (quote jde-compile))
   (local-set-key (quote [f5]) (quote jde-debug))
   (local-set-key (quote [C-f5]) (quote jde-run)))  
-(add-hook 'java-mode-hook 'my-java-jde-mode-hook)  
+(add-hook 'java-mode-hook 'my-java-jde-mode-hook)
 
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-charcoal-black)
+;;(color-theme-charcoal-black)
+(color-theme-deep-blue)
+
+;;             C  mode
+(add-hook 'c-mode-hook 'hs-minor-mode)
+(defun my-c-mode-auto-pair ()
+  (interactive)
+  (make-local-variable 'skeleton-pair-alist)
+  (setq skeleton-pair-alist  '(
+			       (?` ?` _ "''")
+			       (?\( ?  _ ")")
+			       (?\[ ?  _ "]")
+			       (?{ \n > _ \n ?} >)))
+  (setq skeleton-pair t)
+  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
+  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
+(add-hook 'c-mode-hook 'my-c-mode-auto-pair)
 
 (add-to-list 'load-path "~/.emacs.d/evil-evil")  
 (load "evil.el")
@@ -46,11 +64,80 @@
   (evil-mode 0)
   (setq cursor-type 'bar))
 
-(global-set-key (kbd "<f9>") 'my-evil-mode-on)
-(global-set-key (kbd "<f10>") 'my-evil-mode-off)
+(global-set-key (kbd "<f7>") 'smart-compile)
+(defun smart-compile()
+  (interactive)
+  ;;  (let ((candidate-make-file-name '("makefile" "Makefile" "GNUmakefile"))
+  ;;      (command nil))
+  ;;    (if (not (null
+  ;;      (find t candidate-make-file-name :key
+  ;;              '(lambda (f) (file-readable-p f)))))
+  ;;    (setq command "./rebuild.lsp")
+  ;;    (if (null (buffer-file-name (current-buffer)))
+  ;;	  (message "Buffer not attached to a file, won't compile!")
+  ;;	(if (eq major-mode 'shell-script-mode)
+  ;;	    (setq command
+  ;;		  (concat "bash "
+  ;;			  (file-name-nondirectory buffer-file-name)))  
+  (if (eq major-mode 'python-mode)
+      (setq command
+	    (concat "python "
+		    (file-name-nondirectory buffer-file-name)))
+    (if (eq major-mode 'c-mode)
+	(setq command
+	      (concat "gcc -Wall -o "
+		      (file-name-sans-extension
+		       (file-name-nondirectory buffer-file-name))
+		      " "
+		      (file-name-nondirectory buffer-file-name)
+		      " -g -lm "))
+      (if (eq major-mode 'c++-mode)
+	  (setq command			
+		(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
+			(file-name-sans-extension
+			 (file-name-nondirectory buffer-file-name))
+			".cc.o -c "
+			(file-name-nondirectory buffer-file-name)
+			""))
+	(message "Unknow mode, won't compile!"))))
+  (compile command))
 
-					;grep-find
-(global-set-key (kbd "<f3>") 'grep-find)
+;;(ffap-bindings)
+(setq ffap-c-path
+      '("/usr/include" "/usr/local/include"))
+(setq ffap-newfile-prompt t)
+(setq ffap-kpathsea-depth 5)
+
+(setq ff-search-directories
+      '("../src/*" "../include/*" "../../src/*" "../../include/*" "../../../src/*" "../../../include/*" "."))
+
+(defvar my-cpp-other-file-alist
+  '(("\\.cpp\\'" (".hpp" ".ipp"))
+    ("\\.ipp\\'" (".hpp" ".cpp"))
+    ("\\.hpp\\'" (".ipp" ".cpp"))
+    ("\\.cxx\\'" (".hxx" ".ixx"))
+    ("\\.ixx\\'" (".cxx" ".hxx"))
+    ("\\.hxx\\'" (".ixx" ".cxx"))
+    ("\\.c\\'" (".h"))
+    ("\\.cc\\'" (".h"))
+    ("\\.h\\'" (".cc" ".c"))
+    ))
+
+(setq-default ff-other-file-alist 'my-cpp-other-file-alist)
+
+(setq ff-always-in-other-window 1)
+
+;;; Bind the toggle function to a global key
+(global-set-key "\M-o" 'ff-find-other-file)
+
+
+(global-set-key (kbd "C-x f") 'find-file-at-point)
+
+;;(global-set-key (kbd "<f9>") 'my-evil-mode-on)
+;;(global-set-key (kbd "<f10>") 'my-evil-mode-off)
+
+;;grep-find
+(global-set-key (kbd "C-<f3>") 'grep-find)
 
 (global-set-key (kbd "<f1>") 'shell) 
 (global-set-key (kbd "<f2>") 'rename-buffer)
@@ -150,29 +237,18 @@
 (ac-config-default)
 
 (setq-default cursor-type 'bar) 
-;;(define-key ac-mode-map  [(control return)] 'auto-complete)  
-;; /usr/include
-;; /usr/include/c++/4.8
-;; /usr/include/x86_64-linux-gnu/c++/4.8
-;; /usr/include/c++/4.8/backward
-;; /usr/lib/gcc/x86_64-linux-gnu/4.8/include
-;; /usr/local/include
-;; /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
-;; /usr/include/x86_64-linux-gnu
-;;clang!
+
 (require 'auto-complete-clang)  
 (setq ac-clang-auto-save t)  
 (setq ac-auto-start t)  
 (setq ac-quick-help-delay 0.5)  
-;; (ac-set-trigger-key "TAB")  
-;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
-;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
+
 (defun my-ac-config ()  
   (setq ac-clang-flags  
 	(mapcar(lambda (item)(concat "-I" item))  
 	       (split-string  
 		"  
-")))  
+	       ")))  
   (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))  
   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)  
   ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
@@ -188,12 +264,23 @@
 
 (add-to-list 'load-path' "~/.emacs.d/mylisp/")
 
+
+(load "gdb.el")
+(load "highlight-symbol.el")
+
+(require 'highlight-symbol)
+(global-set-key [f3] 'highlight-symbol-at-point)
+(global-set-key (kbd "M-]") 'highlight-symbol-next)
+(global-set-key (kbd "M-[") 'highlight-symbol-prev)
+(global-set-key (kbd "M-\\") 'highlight-symbol-occur)
+(global-set-key [(shift f3)] 'highlight-symbol-remove-all)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+
 (load "sql-indent.el")
 
 (load "window-numbering.el")
 (window-numbering-mode 1)
 
-;;(load "gdb.el")
 (load "google-c-style.el")  
 (add-hook 'c-mode-common-hook 'google-set-c-style)  
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)  
