@@ -25,8 +25,9 @@
   (local-set-key (quote [tab]) (quote jde-complete))  
   (local-set-key (quote [f7]) (quote jde-compile))
   (local-set-key (quote [f5]) (quote jde-debug))
-  (local-set-key (quote [C-f5]) (quote jde-run)))  
+  (local-set-key (quote [C-f5]) (quote jde-run)))
 (add-hook 'java-mode-hook 'my-java-jde-mode-hook)  
+
 
 (add-to-list 'load-path "~/.emacs.d/")
 (require 'color-theme)
@@ -140,51 +141,24 @@
 					;(yas/global-mode 1)
 					;(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用
 
-(add-to-list 'load-path "~/.emacs.d/yasnippet")  
-(require 'yasnippet)  
 
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 (require 'decompile)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
-(ac-config-default)
+
+(defun my-complete ()
+  (interactive)
+  (auto-complete-mode 1))
+(global-set-key (kbd "M-<f9>") 'my-complete)
+
+(add-to-list 'load-path "~/.emacs.d/yasnippet")  
+(require 'yasnippet)  
 
 (setq-default cursor-type 'bar) 
-;;(define-key ac-mode-map  [(control return)] 'auto-complete)  
-;; /usr/include
-;; /usr/include/c++/4.8
-;; /usr/include/x86_64-linux-gnu/c++/4.8
-;; /usr/include/c++/4.8/backward
-;; /usr/lib/gcc/x86_64-linux-gnu/4.8/include
-;; /usr/local/include
-;; /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed
-;; /usr/include/x86_64-linux-gnu
-;;clang!
-(require 'auto-complete-clang)  
-(setq ac-clang-auto-save t)  
-(setq ac-auto-start t)  
-(setq ac-quick-help-delay 0.5)  
-;; (ac-set-trigger-key "TAB")  
-;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
-;; (define-key ac-mode-map  [(control tab)] 'auto-complete)  
-(defun my-ac-config ()  
-  (setq ac-clang-flags  
-	(mapcar(lambda (item)(concat "-I" item))  
-	       (split-string  
-		"  
-")))  
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))  
-  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)  
-  ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
-  ;; (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)  
-  ;;(add-hook 'css-mode-hook 'ac-css-mode-setup)  
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)  
-  (global-auto-complete-mode t))  
-(defun my-ac-cc-mode-setup ()  
-  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))  
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)  
-;; ac-source-gtags  
-(my-ac-config)  
+
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/ac-dict")
+(ac-config-default)
+
 
 (add-to-list 'load-path' "~/.emacs.d/mylisp/")
 
@@ -233,7 +207,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(jde-jdk-registry (quote (("1.6" . "/usr/lib/jvm/java-7-openjdk-amd64")))))
+ '(jde-jdk-registry (quote (("1.6" . "/letv/jdk1.7.0_45/")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
