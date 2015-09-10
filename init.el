@@ -22,7 +22,7 @@
 (load "jde")  
 ;;change jdee hot key
 (defun my-java-jde-mode-hook()  
-  (local-set-key (quote [tab]) (quote jde-complete))  
+;;  (local-set-key (quote [tab]) (quote jde-complete))  
   (local-set-key (quote [f7]) (quote jde-compile))
   (local-set-key (quote [f5]) (quote jde-debug))
   (local-set-key (quote [C-f5]) (quote jde-run)))  
@@ -241,7 +241,12 @@
 (require 'auto-complete-clang)  
 (setq ac-clang-auto-save t)  
 (setq ac-auto-start t)  
-(setq ac-quick-help-delay 0.5)  
+(setq ac-quick-help-delay 0.5)
+
+(defun my-complete ()
+  (interactive)
+  (auto-complete-mode 1))
+(global-set-key (kbd "M-<f9>") 'my-complete)
 
 (defun my-ac-config ()  
   (setq ac-clang-flags  
