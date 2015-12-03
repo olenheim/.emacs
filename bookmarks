@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("wallejob"
+ (filename . "~/agnes_walle/code/src/main/java/com/letv/WalleJob.java")
+ (front-context-string . "package com.letv")
+ (rear-context-string)
+ (position . 1))
+("bumblebee"
+ (filename . "~/bumblebee/code/src/main/java/com/letv/bigdata/storm/cybertron/BumblebeeTopology.java")
+ (front-context-string . "\n\npublic class B")
+ (rear-context-string . "m.kafka.ZkHosts;")
+ (position . 1106))
+)

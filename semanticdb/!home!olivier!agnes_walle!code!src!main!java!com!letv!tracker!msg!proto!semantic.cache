@@ -1,0 +1,677 @@
+;; Object proto/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "proto/"
+  :tables
+  (list
+    (semanticdb-table "PlayRequestProto.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.tracker.msg.proto" package nil nil [91 126])
+            ("PlayRequestProto" type
+               (:typemodifiers ("public" "final")
+                :members 
+                  ( ("PlayRequestProto" function
+                       (:constructor-flag t
+                        :typemodifiers ("private"))
+                        (reparse-symbol class_member_declaration) [168 197])
+                    ("registerAllExtensions" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("registry" variable (:type "com.google.protobuf.ExtensionRegistry") (reparse-symbol formal_parameters) [248 294]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [200 301])
+                    ("PlayRequestOrBuilder" type
+                       (:typemodifiers ("public")
+                        :interfaces ("com.google.protobuf.MessageOrBuilder")
+                        :members 
+                          ( ("hasCurrentTime" function (:type "boolean") (reparse-symbol interface_member_declaration) [445 470])
+                            ("getCurrentTime" function (:type "long") (reparse-symbol interface_member_declaration) [475 497])
+                            ("hasPlayId" function (:type "boolean") (reparse-symbol interface_member_declaration) [543 563])
+                            ("getPlayId" function (:type "String") (reparse-symbol interface_member_declaration) [568 587])
+                            ("hasAppId" function (:type "boolean") (reparse-symbol interface_member_declaration) [632 651])
+                            ("getAppId" function (:type "String") (reparse-symbol interface_member_declaration) [656 674])
+                            ("hasVid" function (:type "boolean") (reparse-symbol interface_member_declaration) [716 733])
+                            ("getVid" function (:type "String") (reparse-symbol interface_member_declaration) [738 754])
+                            ("hasPushId" function (:type "boolean") (reparse-symbol interface_member_declaration) [800 820])
+                            ("getPushId" function (:type "String") (reparse-symbol interface_member_declaration) [825 844])
+                            ("getProps" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [1081 1090]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Property")
+                                (reparse-symbol interface_member_declaration) [1011 1092])
+                            ("getPropsCount" function (:type "int") (reparse-symbol interface_member_declaration) [1097 1117])
+                            ("getPropsOrBuilder" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [1353 1362]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.PropertyOrBuilder")
+                                (reparse-symbol interface_member_declaration) [1256 1364])
+                            ("getActions" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [1601 1610]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Action")
+                                (reparse-symbol interface_member_declaration) [1531 1612])
+                            ("getActionsCount" function (:type "int") (reparse-symbol interface_member_declaration) [1617 1639])
+                            ("getActionsOrBuilder" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [1875 1884]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.ActionOrBuilder")
+                                (reparse-symbol interface_member_declaration) [1778 1886])
+                            ("hasStartId" function (:type "boolean") (reparse-symbol interface_member_declaration) [1933 1954])
+                            ("getStartId" function (:type "String") (reparse-symbol interface_member_declaration) [1959 1979])
+                            ("hasWidgetId" function (:type "boolean") (reparse-symbol interface_member_declaration) [2027 2049])
+                            ("getWidgetId" function (:type "String") (reparse-symbol interface_member_declaration) [2054 2075])
+                            ("hasCid" function (:type "boolean") (reparse-symbol interface_member_declaration) [2118 2135])
+                            ("getCid" function (:type "String") (reparse-symbol interface_member_declaration) [2140 2156])
+                            ("hasUrl" function (:type "boolean") (reparse-symbol interface_member_declaration) [2199 2216])
+                            ("getUrl" function (:type "String") (reparse-symbol interface_member_declaration) [2221 2237])
+                            ("hasMmsid" function (:type "boolean") (reparse-symbol interface_member_declaration) [2282 2301])
+                            ("getMmsid" function (:type "String") (reparse-symbol interface_member_declaration) [2306 2324])
+                            ("hasPid" function (:type "boolean") (reparse-symbol interface_member_declaration) [2367 2384])
+                            ("getPid" function (:type "String") (reparse-symbol interface_member_declaration) [2389 2405])
+                            ("hasLength" function (:type "boolean") (reparse-symbol interface_member_declaration) [2451 2471])
+                            ("getLength" function (:type "int") (reparse-symbol interface_member_declaration) [2476 2492])
+                            ("hasType" function (:type "boolean") (reparse-symbol interface_member_declaration) [2536 2554])
+                            ("getType" function (:type "String") (reparse-symbol interface_member_declaration) [2559 2576])
+                            ("hasStream" function (:type "boolean") (reparse-symbol interface_member_declaration) [2622 2642])
+                            ("getStream" function (:type "String") (reparse-symbol interface_member_declaration) [2647 2666])
+                            ("hasFrom" function (:type "boolean") (reparse-symbol interface_member_declaration) [2710 2728])
+                            ("getFrom" function (:type "String") (reparse-symbol interface_member_declaration) [2733 2750])
+                            ("getAds" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [2964 2973]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Ad")
+                                (reparse-symbol interface_member_declaration) [2902 2975])
+                            ("getAdsCount" function (:type "int") (reparse-symbol interface_member_declaration) [2980 2998])
+                            ("getAdsOrBuilder" function
+                               (:arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [3218 3227]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.AdOrBuilder")
+                                (reparse-symbol interface_member_declaration) [3129 3229])
+                            ("hasHardwareType" function (:type "boolean") (reparse-symbol interface_member_declaration) [3282 3308])
+                            ("getHardwareType" function (:type "String") (reparse-symbol interface_member_declaration) [3313 3338]))                          
+                        :type "interface")
+                        (reparse-symbol class_member_declaration) [304 3342])
+                    ("PlayRequest" type
+                       (:typemodifiers ("public" "static" "final")
+                        :interfaces ("PlayRequestOrBuilder")
+                        :superclasses "com.google.protobuf.GeneratedMessage"
+                        :members 
+                          ( ("PlayRequest" function
+                               (:constructor-flag t
+                                :typemodifiers ("private")
+                                :arguments 
+                                  ( ("builder" variable (:type "Builder") (reparse-symbol formal_parameters) [3548 3563]))                                  )
+                                (reparse-symbol class_member_declaration) [3528 3594])
+                            ("PlayRequest" function
+                               (:constructor-flag t
+                                :typemodifiers ("private")
+                                :arguments 
+                                  ( ("noInit" variable (:type "boolean") (reparse-symbol formal_parameters) [3619 3633]))                                  )
+                                (reparse-symbol class_member_declaration) [3599 3637])
+                            ("defaultInstance" variable
+                               (:typemodifiers ("private" "static" "final")
+                                :type "PlayRequest")
+                                (reparse-symbol class_member_declaration) [3647 3696])
+                            ("getDefaultInstance" function
+                               (:typemodifiers ("public" "static")
+                                :type "PlayRequest")
+                                (reparse-symbol class_member_declaration) [3701 3785])
+                            ("getDefaultInstanceForType" function
+                               (:typemodifiers ("public")
+                                :type "PlayRequest")
+                                (reparse-symbol class_member_declaration) [3795 3879])
+                            ("getDescriptor" function
+                               (:typemodifiers ("public" "static" "final")
+                                :type "com.google.protobuf.Descriptors.Descriptor")
+                                (reparse-symbol class_member_declaration) [3889 4084])
+                            ("internalGetFieldAccessorTable" function
+                               (:typemodifiers ("protected")
+                                :type "com.google.protobuf.GeneratedMessage.FieldAccessorTable")
+                                (reparse-symbol class_member_declaration) [4094 4316])
+                            ("bitField0_" variable
+                               (:typemodifiers ("private")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [4326 4349])
+                            ("CURRENT_TIME_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [4395 4449])
+                            ("currentTime_" variable
+                               (:typemodifiers ("private")
+                                :type "long")
+                                (reparse-symbol class_member_declaration) [4454 4480])
+                            ("hasCurrentTime" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [4485 4580])
+                            ("getCurrentTime" function
+                               (:typemodifiers ("public")
+                                :type "long")
+                                (reparse-symbol class_member_declaration) [4585 4648])
+                            ("PLAY_ID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [4694 4743])
+                            ("playId_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [4748 4771])
+                            ("hasPlayId" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [4776 4866])
+                            ("getPlayId" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [4871 5263])
+                            ("getPlayIdBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [5268 5624])
+                            ("APP_ID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [5669 5717])
+                            ("appId_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [5722 5744])
+                            ("hasAppId" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [5749 5838])
+                            ("getAppId" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [5843 6232])
+                            ("getAppIdBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [6237 6590])
+                            ("VID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [6632 6677])
+                            ("vid_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [6682 6702])
+                            ("hasVid" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [6707 6794])
+                            ("getVid" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [6799 7182])
+                            ("getVidBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [7187 7534])
+                            ("PUSH_ID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [7580 7629])
+                            ("pushId_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [7634 7657])
+                            ("hasPushId" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [7662 7752])
+                            ("getPushId" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [7757 8149])
+                            ("getPushIdBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [8154 8510])
+                            ("PROPS_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [8571 8618])
+                            ("getPropsList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [8804 8847])
+                            ("getPropsOrBuilderList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [8964 9016])
+                            ("getPropsCount" function
+                               (:typemodifiers ("public")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [9021 9083])
+                            ("getProps" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [9165 9174]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Property")
+                                (reparse-symbol class_member_declaration) [9088 9215])
+                            ("getPropsOrBuilder" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [9324 9333]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.PropertyOrBuilder")
+                                (reparse-symbol class_member_declaration) [9220 9374])
+                            ("ACTIONS_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [9435 9484])
+                            ("getActionsList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [9668 9715])
+                            ("getActionsOrBuilderList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [9830 9886])
+                            ("getActionsCount" function
+                               (:typemodifiers ("public")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [9891 9957])
+                            ("getActions" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [10039 10048]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Action")
+                                (reparse-symbol class_member_declaration) [9962 10091])
+                            ("getActionsOrBuilder" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [10200 10209]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.ActionOrBuilder")
+                                (reparse-symbol class_member_declaration) [10096 10252])
+                            ("START_ID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [10299 10349])
+                            ("startId_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [10354 10378])
+                            ("hasStartId" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [10383 10474])
+                            ("getStartId" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [10479 10874])
+                            ("getStartIdBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [10879 11238])
+                            ("WIDGET_ID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [11286 11337])
+                            ("widgetId_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [11342 11367])
+                            ("hasWidgetId" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [11372 11464])
+                            ("getWidgetId" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [11469 11867])
+                            ("getWidgetIdBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [11872 12234])
+                            ("CID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [12277 12323])
+                            ("cid_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [12328 12348])
+                            ("hasCid" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [12353 12440])
+                            ("getCid" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [12445 12828])
+                            ("getCidBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [12833 13180])
+                            ("URL_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [13223 13269])
+                            ("url_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [13274 13294])
+                            ("hasUrl" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [13299 13386])
+                            ("getUrl" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [13391 13774])
+                            ("getUrlBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [13779 14126])
+                            ("MMSID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [14171 14219])
+                            ("mmsid_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [14224 14246])
+                            ("hasMmsid" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [14251 14340])
+                            ("getMmsid" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [14345 14734])
+                            ("getMmsidBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [14739 15092])
+                            ("PID_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [15135 15181])
+                            ("pid_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [15186 15206])
+                            ("hasPid" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [15211 15298])
+                            ("getPid" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [15303 15686])
+                            ("getPidBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [15691 16038])
+                            ("LENGTH_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [16084 16133])
+                            ("length_" variable
+                               (:typemodifiers ("private")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [16138 16158])
+                            ("hasLength" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [16163 16253])
+                            ("getLength" function
+                               (:typemodifiers ("public")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [16258 16310])
+                            ("TYPE_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [16354 16401])
+                            ("type_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [16406 16427])
+                            ("hasType" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [16432 16520])
+                            ("getType" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [16525 16911])
+                            ("getTypeBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [16916 17266])
+                            ("STREAM_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [17312 17361])
+                            ("stream_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [17366 17389])
+                            ("hasStream" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [17394 17484])
+                            ("getStream" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [17489 17881])
+                            ("getStreamBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [17886 18242])
+                            ("FROM_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [18286 18333])
+                            ("from_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [18338 18359])
+                            ("hasFrom" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [18364 18452])
+                            ("getFrom" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [18457 18843])
+                            ("getFromBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [18848 19198])
+                            ("ADS_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [19252 19298])
+                            ("getAdsList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [19470 19509])
+                            ("getAdsOrBuilderList" function (:constructor-flag t) (reparse-symbol class_member_declaration) [19620 19668])
+                            ("getAdsCount" function
+                               (:typemodifiers ("public")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [19673 19731])
+                            ("getAds" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [19805 19814]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Ad")
+                                (reparse-symbol class_member_declaration) [19736 19853])
+                            ("getAdsOrBuilder" function
+                               (:typemodifiers ("public")
+                                :arguments 
+                                  ( ("index" variable (:type "int") (reparse-symbol formal_parameters) [19954 19963]))                                  
+                                :type "com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.AdOrBuilder")
+                                (reparse-symbol class_member_declaration) [19858 20002])
+                            ("HARDWARE_TYPE_FIELD_NUMBER" variable
+                               (:typemodifiers ("public" "static" "final")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [20055 20111])
+                            ("hardwareType_" variable
+                               (:typemodifiers ("private")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [20116 20145])
+                            ("hasHardwareType" function
+                               (:typemodifiers ("public")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [20150 20246])
+                            ("getHardwareType" function
+                               (:typemodifiers ("public")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [20251 20661])
+                            ("getHardwareTypeBytes" function
+                               (:typemodifiers ("private")
+                                :type "com.google.protobuf.ByteString")
+                                (reparse-symbol class_member_declaration) [20666 21040])
+                            ("initFields" function
+                               (:typemodifiers ("private")
+                                :type "void")
+                                (reparse-symbol class_member_declaration) [21050 21548])
+                            ("memoizedIsInitialized" variable
+                               (:typemodifiers ("private")
+                                :type "byte")
+                                (reparse-symbol class_member_declaration) [21553 21593])
+                            ("isInitialized" function
+                               (:typemodifiers ("public" "final")
+                                :type "boolean")
+                                (reparse-symbol class_member_declaration) [21598 22515])
+                            ("writeTo" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public")
+                                :arguments 
+                                  ( ("output" variable (:type "com.google.protobuf.CodedOutputStream") (reparse-symbol formal_parameters) [22545 22589]))                                  
+                                :type "void")
+                                (reparse-symbol class_member_declaration) [22525 24793])
+                            ("memoizedSerializedSize" variable
+                               (:typemodifiers ("private")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [24803 24843])
+                            ("getSerializedSize" function
+                               (:typemodifiers ("public")
+                                :type "int")
+                                (reparse-symbol class_member_declaration) [24848 28232])
+                            ("writeReplace" function
+                               (:throws ("java.io.ObjectStreamException")
+                                :typemodifiers ("protected")
+                                :type "Object")
+                                (reparse-symbol class_member_declaration) [28266 28377])
+                            ("parseFrom" function
+                               (:throws ("com.google.protobuf.InvalidProtocolBufferException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("data" variable (:type "com.google.protobuf.ByteString") (reparse-symbol formal_parameters) [28476 28511]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [28387 28643])
+                            ("parseFrom" function
+                               (:throws ("com.google.protobuf.InvalidProtocolBufferException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("data" variable (:type "com.google.protobuf.ByteString") (reparse-symbol formal_parameters) [28737 28772])
+                                    ("extensionRegistry" variable (:type "com.google.protobuf.ExtensionRegistryLite") (reparse-symbol formal_parameters) [28782 28841]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [28648 29008])
+                            ("parseFrom" function
+                               (:throws ("com.google.protobuf.InvalidProtocolBufferException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("data" variable
+                                       (:dereference 1
+                                        :type "byte")
+                                        (reparse-symbol formal_parameters) [29093 29104]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [29013 29236])
+                            ("parseFrom" function
+                               (:throws ("com.google.protobuf.InvalidProtocolBufferException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("data" variable
+                                       (:dereference 1
+                                        :type "byte")
+                                        (reparse-symbol formal_parameters) [29330 29341])
+                                    ("extensionRegistry" variable (:type "com.google.protobuf.ExtensionRegistryLite") (reparse-symbol formal_parameters) [29351 29410]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [29241 29577])
+                            ("parseFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "java.io.InputStream") (reparse-symbol formal_parameters) [29662 29687]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [29582 29789])
+                            ("parseFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "java.io.InputStream") (reparse-symbol formal_parameters) [29883 29908])
+                                    ("extensionRegistry" variable (:type "com.google.protobuf.ExtensionRegistryLite") (reparse-symbol formal_parameters) [29918 29977]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [29794 30114])
+                            ("parseDelimitedFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "java.io.InputStream") (reparse-symbol formal_parameters) [30208 30233]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [30119 30444])
+                            ("parseDelimitedFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "java.io.InputStream") (reparse-symbol formal_parameters) [30547 30572])
+                                    ("extensionRegistry" variable (:type "com.google.protobuf.ExtensionRegistryLite") (reparse-symbol formal_parameters) [30582 30641]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [30449 30871])
+                            ("parseFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "com.google.protobuf.CodedInputStream") (reparse-symbol formal_parameters) [30965 31007]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [30876 31109])
+                            ("parseFrom" function
+                               (:throws ("java.io.IOException")
+                                :typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("input" variable (:type "com.google.protobuf.CodedInputStream") (reparse-symbol formal_parameters) [31203 31245])
+                                    ("extensionRegistry" variable (:type "com.google.protobuf.ExtensionRegistryLite") (reparse-symbol formal_parameters) [31255 31314]))                                  
+                                :type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest")
+                                (reparse-symbol class_member_declaration) [31114 31451])
+                            ("newBuilder" function
+                               (:typemodifiers ("public" "static")
+                                :type "Builder")
+                                (reparse-symbol class_member_declaration) [31461 31524])
+                            ("newBuilderForType" function
+                               (:typemodifiers ("public")
+                                :type "Builder")
+                                (reparse-symbol class_member_declaration) [31529 31588])
+                            ("newBuilder" function
+                               (:typemodifiers ("public" "static")
+                                :arguments 
+                                  ( ("prototype" variable (:type "com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest") (reparse-symbol formal_parameters) [31626 31691]))                                  
+                                :type "Builder")
+                                (reparse-symbol class_member_declaration) [31593 31748])
+                            ("toBuilder" function
+                               (:typemodifiers ("public")
+                                :type "Builder")
+                                (reparse-symbol class_member_declaration) [31753 31808])
+                            ("newBuilderForType" function
+                               (:typemodifiers ("protected")
+                                :arguments 
+                                  ( ("parent" variable (:type "com.google.protobuf.GeneratedMessage.BuilderParent") (reparse-symbol formal_parameters) [31887 31944]))                                  
+                                :type "Builder")
+                                (reparse-symbol class_member_declaration) [31842 32020]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [3345 87283])
+                    ("internal_static_msg_PlayRequest_descriptor" variable
+                       (:typemodifiers ("private" "static")
+                        :type "com.google.protobuf.Descriptors.Descriptor")
+                        (reparse-symbol class_member_declaration) [87289 87394])
+                    ("internal_static_msg_PlayRequest_fieldAccessorTable" variable
+                       (:typemodifiers ("private" "static")
+                        :type "com.google.protobuf.GeneratedMessage.FieldAccessorTable")
+                        (reparse-symbol class_member_declaration) [87397 87529])
+                    ("getDescriptor" function
+                       (:typemodifiers ("public" "static")
+                        :type "com.google.protobuf.Descriptors.FileDescriptor")
+                        (reparse-symbol class_member_declaration) [87535 87646])
+                    ("descriptor" variable
+                       (:typemodifiers ("private" "static")
+                        :type "com.google.protobuf.Descriptors.FileDescriptor")
+                        (reparse-symbol class_member_declaration) [87649 87728]))                  
+                :type "class")
+                nil [128 90201]))          
+      :file "PlayRequestProto.java"
+      :pointmax 90202
+      :fsize 90201
+      :lastmodtime '(21954 49887 260446 272000)
+      :unmatched-syntax '((IMPLEMENTS 32136 . 32146) (GT 32127 . 32128) (PUBLIC 32025 . 32031) (LT 32119 . 32120) (GT 19609 . 19610) (EXTENDS 19538 . 19545) (QUESTION 19536 . 19537) (PUBLIC 19514 . 19520) (LT 19535 . 19536) (GT 19468 . 19469) (LT 19413 . 19414) (SEMICOLON 19386 . 19387) (GT 19380 . 19381) (PRIVATE 19303 . 19310) (LT 19325 . 19326) (GT 9819 . 9820) (EXTENDS 9744 . 9751) (QUESTION 9742 . 9743) (PUBLIC 9720 . 9726) (LT 9741 . 9742) (GT 9666 . 9667) (LT 9607 . 9608) (SEMICOLON 9580 . 9581) (GT 9570 . 9571) (PRIVATE 9489 . 9496) (LT 9511 . 9512) (GT 8953 . 8954) (EXTENDS 8876 . 8883) (QUESTION 8874 . 8875) (PUBLIC 8852 . 8858) (LT 8873 . 8874) (GT 8802 . 8803) (LT 8741 . 8742) (SEMICOLON 8714 . 8715) (GT 8706 . 8707) (PRIVATE 8623 . 8630) (LT 8645 . 8646) (SEMICOLON 3123 . 3124) (PAREN_BLOCK 3121 . 3123) (GT 3091 . 3092) (EXTENDS 3020 . 3027) (QUESTION 3018 . 3019) (IDENTIFIER 3003 . 3007) (LT 3017 . 3018) (SEMICOLON 2896 . 2897) (PAREN_BLOCK 2894 . 2896) (GT 2873 . 2874) (IDENTIFIER 2804 . 2808) (LT 2818 . 2819) (SEMICOLON 1772 . 1773) (PAREN_BLOCK 1770 . 1772) (GT 1736 . 1737) (EXTENDS 1661 . 1668) (QUESTION 1659 . 1660) (IDENTIFIER 1644 . 1648) (LT 1658 . 1659) (SEMICOLON 1525 . 1526) (PAREN_BLOCK 1523 . 1525) (GT 1498 . 1499) (IDENTIFIER 1425 . 1429) (LT 1439 . 1440) (SEMICOLON 1250 . 1251) (PAREN_BLOCK 1248 . 1250) (GT 1216 . 1217) (EXTENDS 1139 . 1146) (QUESTION 1137 . 1138) (IDENTIFIER 1122 . 1126) (LT 1136 . 1137) (SEMICOLON 1005 . 1006) (PAREN_BLOCK 1003 . 1005) (GT 980 . 981) (IDENTIFIER 905 . 909) (LT 919 . 920))))
+  :file "!home!olivier!agnes_walle!code!src!main!java!com!letv!tracker!msg!proto!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

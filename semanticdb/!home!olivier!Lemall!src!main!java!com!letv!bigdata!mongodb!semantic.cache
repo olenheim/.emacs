@@ -1,0 +1,87 @@
+;; Object mongodb/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "mongodb/"
+  :tables
+  (list
+    (semanticdb-table "MongoObjectGrabber.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("org.mongodb" package nil nil [1 21])
+            ("com.mongodb.DBObject" include nil nil [23 51])
+            ("java.io.Serializable" include nil nil [53 81])
+            ("java.util.List" include nil nil [82 104])
+            ("MongoObjectGrabber" type
+               (:typemodifiers ("public" "abstract")
+                :interfaces ("Serializable")
+                :members 
+                  ( ("serialVersionUID" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [176 242])
+                    ("fields" function
+                       (:typemodifiers ("public" "abstract")
+                        :type "String[]")
+                        (reparse-symbol class_member_declaration) [300 334]))                  
+                :type "class")
+                nil [106 337]))          
+      :file "MongoObjectGrabber.java"
+      :pointmax 338
+      :fsize 337
+      :lastmodtime '(21956 20439 357514 504000)
+      :unmatched-syntax '((SEMICOLON 295 . 296) (GT 273 . 274) (PUBLIC 246 . 252) (LT 266 . 267)))
+    (semanticdb-table "UpdateQueryCreator.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("org.mongodb" package nil nil [1 21])
+            ("backtype.storm.tuple.Tuple" include nil nil [23 57])
+            ("com.mongodb.DBObject" include nil nil [58 86])
+            ("java.io.Serializable" include nil nil [88 116])
+            ("UpdateQueryCreator" type
+               (:typemodifiers ("public" "abstract")
+                :interfaces ("Serializable")
+                :members 
+                  ( ("createQuery" function
+                       (:typemodifiers ("public" "abstract")
+                        :arguments 
+                          ( ("tuple" variable (:type "Tuple") (reparse-symbol formal_parameters) [225 236]))                          
+                        :type "DBObject")
+                        (reparse-symbol class_member_declaration) [188 238]))                  
+                :type "class")
+                nil [118 241]))          
+      :file "UpdateQueryCreator.java"
+      :pointmax 242
+      :fsize 241
+      :lastmodtime '(21956 20439 357514 504000)
+      :unmatched-syntax nil)
+    (semanticdb-table "StormMongoObjectGrabber.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("org.mongodb" package nil nil [1 21])
+            ("backtype.storm.tuple.Tuple" include nil nil [23 57])
+            ("com.mongodb.DBObject" include nil nil [58 86])
+            ("java.io.Serializable" include nil nil [88 116])
+            ("StormMongoObjectGrabber" type
+               (:typemodifiers ("public" "abstract")
+                :interfaces ("Serializable")
+                :members 
+                  ( ("serialVersionUID" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [193 258])
+                    ("map" function
+                       (:typemodifiers ("public" "abstract")
+                        :arguments 
+                          ( ("object" variable (:type "DBObject") (reparse-symbol formal_parameters) [291 306])
+                            ("tuple" variable (:type "Tuple") (reparse-symbol formal_parameters) [308 319]))                          
+                        :type "DBObject")
+                        (reparse-symbol class_member_declaration) [262 321]))                  
+                :type "class")
+                nil [118 323]))          
+      :file "StormMongoObjectGrabber.java"
+      :pointmax 324
+      :fsize 323
+      :lastmodtime '(21956 20439 357514 504000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!Lemall!src!main!java!com!letv!bigdata!mongodb!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

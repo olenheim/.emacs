@@ -1,0 +1,545 @@
+;; Object parser/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "parser/"
+  :tables
+  (list
+    (semanticdb-table "HeartbeatParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.util.List" include nil nil [27 49])
+            ("java.util.ArrayList" include nil nil [50 77])
+            ("java.util.Arrays" include nil nil [78 102])
+            ("com.letv.parser.BaseParser" include nil nil [104 138])
+            ("com.letv.tracker.msg.proto.HeartbeatRequestProto" include nil nil [139 195])
+            ("com.letv.tracker.msg.proto.HeartbeatRequestProto.HeartbeatRequest" include nil nil [196 269])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.SimCard" include nil nil [270 337])
+            ("com.google.protobuf.Message" include nil nil [339 374])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [375 433])
+            ("com.googlecode.protobuf.format.JsonFormat" include nil nil [435 484])
+            ("HeartbeatParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("parse" function
+                       (:throws ("InvalidProtocolBufferException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("msg" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [564 574]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [545 1660]))                  
+                :type "class")
+                nil [486 1665]))          
+      :file "HeartbeatParser.java"
+      :pointmax 1666
+      :fsize 1665
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BaseParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.util.List" include nil nil [27 49])
+            ("java.util.ArrayList" include nil nil [50 77])
+            ("java.util.Arrays" include nil nil [78 102])
+            ("java.util.HashMap" include nil nil [103 128])
+            ("com.google.protobuf.Message" include nil nil [130 165])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [166 224])
+            ("com.googlecode.protobuf.format.JsonFormat" include nil nil [225 274])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.SimCard" include nil nil [275 342])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Property" include nil nil [343 411])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Summary" include nil nil [412 479])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Action" include nil nil [480 546])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Ad" include nil nil [547 609])
+            ("com.letv.tracker.msg.proto.CommonMsgProto.CommonMsg.Version" include nil nil [610 677])
+            ("com.letv.parser.DataBox" include nil nil [679 710])
+            ("BaseParser" type
+               (:typemodifiers ("public" "abstract")
+                :members 
+                  ( ("startId" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [751 776])
+                    ("HardwareTypePrefix" variable
+                       (:typemodifiers ("private")
+                        :type "StringBuilder")
+                        (reparse-symbol class_member_declaration) [782 830])
+                    ("type" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [836 856])
+                    ("parse" function
+                       (:throws ("InvalidProtocolBufferException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("msg" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [880 890]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [862 932])
+                    ("MainDB" variable
+                       (:typemodifiers ("private")
+                        :type "DataBox")
+                        (reparse-symbol class_member_declaration) [936 966])
+                    ("desc" variable
+                       (:typemodifiers ("private")
+                        :type "DesUtils")
+                        (reparse-symbol class_member_declaration) [1029 1078])
+                    ("clear" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1084 1129])
+                    ("addPrefix" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("str" variable (:type "String") (reparse-symbol formal_parameters) [1158 1168]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1133 1275])
+                    ("init" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("Id" variable (:type "String") (reparse-symbol formal_parameters) [1301 1310])
+                            ("tp" variable (:type "String") (reparse-symbol formal_parameters) [1312 1321])
+                            ("Hardware" variable (:type "String") (reparse-symbol formal_parameters) [1323 1338]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1281 1685])
+                    ("finish" function
+                       (:typemodifiers ("protected")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1689 1742])
+                    ("getVersion" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("ver" variable (:type "Version") (reparse-symbol formal_parameters) [1774 1785]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1746 2229])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("ver" variable (:type "Version") (reparse-symbol formal_parameters) [2260 2271]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2235 2310])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("" variable (:type "acts") (reparse-symbol formal_parameters) [3042 3046])
+                            ("CurTime" variable (:type "long") (reparse-symbol formal_parameters) [3048 3060])
+                            ("app_run_id" variable (:type "String") (reparse-symbol formal_parameters) [3062 3079]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3004 3523])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("" variable (:type "cards") (reparse-symbol formal_parameters) [3596 3601])
+                            ("CurTime" variable (:type "long") (reparse-symbol formal_parameters) [3602 3614]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3557 4128])
+                    ("getPropValue" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("" variable (:type "props") (reparse-symbol formal_parameters) [4177 4182])
+                            ("key" variable (:type "String") (reparse-symbol formal_parameters) [4184 4194]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [4132 4572])
+                    ("ConvertPropstoJson" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "props") (reparse-symbol formal_parameters) [4625 4630]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [4576 5178])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("" variable (:type "props") (reparse-symbol formal_parameters) [5222 5227]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [5182 5288])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("" variable (:type "props") (reparse-symbol formal_parameters) [5334 5339])
+                            ("" variable (:type "requird_props") (reparse-symbol formal_parameters) [5354 5367]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [5294 6709])
+                    ("getImei" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("jnfj" variable (:type "String") (reparse-symbol formal_parameters) [6738 6749]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [6713 6965])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("bl" variable (:type "boolean") (reparse-symbol formal_parameters) [6996 7006]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [6971 7051])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("t" variable (:type "String") (reparse-symbol formal_parameters) [7082 7090]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7057 7123])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("f" variable (:type "Float") (reparse-symbol formal_parameters) [7152 7159]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7127 7208])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("i" variable (:type "int") (reparse-symbol formal_parameters) [7237 7242]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7212 7293])
+                    ("addResult" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("l" variable (:type "long") (reparse-symbol formal_parameters) [7322 7328]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7297 7376]))                  
+                :type "class")
+                nil [712 7378]))          
+      :file "BaseParser.java"
+      :pointmax 7379
+      :fsize 7486
+      :lastmodtime '(21961 55118 331060 759000)
+      :unmatched-syntax nil)
+    (semanticdb-table "PlayParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.util.ArrayList" include nil nil [27 54])
+            ("java.util.Arrays" include nil nil [55 79])
+            ("com.letv.parser.BaseParser" include nil nil [81 115])
+            ("com.letv.tracker.msg.proto.PlayRequestProto" include nil nil [117 168])
+            ("com.letv.tracker.msg.proto.PlayRequestProto.PlayRequest" include nil nil [169 232])
+            ("com.google.protobuf.Message" include nil nil [234 269])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [270 328])
+            ("PlayParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("parse" function
+                       (:throws ("InvalidProtocolBufferException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("msg" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [397 407]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [378 1787]))                  
+                :type "class")
+                nil [330 1789]))          
+      :file "PlayParser.java"
+      :pointmax 1790
+      :fsize 1789
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "DataBox.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("com.letv.conf.WalleConf" include nil nil [26 57])
+            ("DataBox" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("type" variable
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [84 103])
+                    ("getContent" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [106 176])
+                    ("content" variable
+                       (:typemodifiers ("private")
+                        :type "StringBuilder")
+                        (reparse-symbol class_member_declaration) [179 231])
+                    ("addContent" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("t" variable (:type "String") (reparse-symbol formal_parameters) [257 265]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [234 493]))                  
+                :type "class")
+                nil [59 495]))          
+      :file "DataBox.java"
+      :pointmax 496
+      :fsize 495
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MusicPlayParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.util.ArrayList" include nil nil [27 54])
+            ("java.util.Arrays" include nil nil [55 79])
+            ("com.letv.parser.BaseParser" include nil nil [81 115])
+            ("com.letv.tracker.msg.proto.MusicRequestProto" include nil nil [117 169])
+            ("com.letv.tracker.msg.proto.MusicRequestProto.MusicPlayRequest" include nil nil [170 239])
+            ("com.google.protobuf.Message" include nil nil [241 276])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [277 335])
+            ("MusicPlayParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("parse" function
+                       (:throws ("InvalidProtocolBufferException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("msg" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [409 419]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [390 1663]))                  
+                :type "class")
+                nil [337 1665]))          
+      :file "MusicPlayParser.java"
+      :pointmax 1666
+      :fsize 1665
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "EventParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.util.ArrayList" include nil nil [27 54])
+            ("java.util.Arrays" include nil nil [55 79])
+            ("com.letv.parser.BaseParser" include nil nil [81 115])
+            ("com.letv.tracker.msg.proto.EventRequestProto" include nil nil [116 168])
+            ("com.letv.tracker.msg.proto.EventRequestProto.EventRequest" include nil nil [169 234])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [236 294])
+            ("com.google.protobuf.Message" include nil nil [295 330])
+            ("EventParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("parse" function
+                       (:throws ("InvalidProtocolBufferException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("msg" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [400 410]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [381 1182]))                  
+                :type "class")
+                nil [332 1187]))          
+      :file "EventParser.java"
+      :pointmax 1188
+      :fsize 1187
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "ImeiHelper.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.security.Key" include nil nil [27 52])
+            ("java.security.Security" include nil nil [53 83])
+            ("javax.crypto.Cipher" include nil nil [84 111])
+            ("DesUtils" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("strDefaultKey" variable
+                       (:typemodifiers ("private" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [139 188])
+                    ("Key" variable
+                       (:typemodifiers ("private" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [191 230])
+                    ("encryptCipher" variable
+                       (:typemodifiers ("private")
+                        :type "Cipher")
+                        (reparse-symbol class_member_declaration) [233 269])
+                    ("decryptCipher" variable
+                       (:typemodifiers ("private")
+                        :type "Cipher")
+                        (reparse-symbol class_member_declaration) [272 308])
+                    ("byteArr2HexStr" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [348 359]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [312 729])
+                    ("hexStr2ByteArr" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [769 781]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [733 1082])
+                    ("DesUtils" function
+                       (:constructor-flag t
+                        :throws ("Exception")
+                        :typemodifiers ("public"))
+                        (reparse-symbol class_member_declaration) [1086 1151])
+                    ("DesUtils" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strKey" variable (:type "String") (reparse-symbol formal_parameters) [1171 1184]))                          )
+                        (reparse-symbol class_member_declaration) [1155 1594])
+                    ("encrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [1620 1631]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [1598 1695])
+                    ("encrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [1721 1733]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1699 1811])
+                    ("decrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [1837 1848]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [1815 1912])
+                    ("decrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [1938 1950]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1916 2029])
+                    ("getKey" function
+                       (:throws ("Exception")
+                        :typemodifiers ("private")
+                        :arguments 
+                          ( ("arrBTmp" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [2052 2066]))                          
+                        :type "Key")
+                        (reparse-symbol class_member_declaration) [2033 2301]))                  
+                :type "class")
+                nil [113 2303]))          
+      :file "ImeiHelper.java"
+      :pointmax 2304
+      :unmatched-syntax nil)
+    (semanticdb-table "DesUtils.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.parser" package nil nil [1 25])
+            ("java.security.Key" include nil nil [27 52])
+            ("java.security.Security" include nil nil [53 83])
+            ("javax.crypto.Cipher" include nil nil [84 111])
+            ("DesUtils" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("strDefaultKey" variable
+                       (:typemodifiers ("private" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [139 188])
+                    ("encryptCipher" variable
+                       (:typemodifiers ("private")
+                        :type "Cipher")
+                        (reparse-symbol class_member_declaration) [191 227])
+                    ("decryptCipher" variable
+                       (:typemodifiers ("private")
+                        :type "Cipher")
+                        (reparse-symbol class_member_declaration) [230 266])
+                    ("byteArr2HexStr" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [306 317]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [270 687])
+                    ("hexStr2ByteArr" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [727 739]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [691 1040])
+                    ("DesUtils" function
+                       (:constructor-flag t
+                        :throws ("Exception")
+                        :typemodifiers ("public"))
+                        (reparse-symbol class_member_declaration) [1044 1109])
+                    ("DesUtils" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strKey" variable (:type "String") (reparse-symbol formal_parameters) [1129 1142]))                          )
+                        (reparse-symbol class_member_declaration) [1113 1552])
+                    ("encrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [1578 1589]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [1556 1653])
+                    ("encrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [1679 1691]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1657 1769])
+                    ("decrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("arrB" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [1795 1806]))                          
+                        :type "byte[]")
+                        (reparse-symbol class_member_declaration) [1773 1870])
+                    ("decrypt" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("strIn" variable (:type "String") (reparse-symbol formal_parameters) [1896 1908]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1874 1987])
+                    ("getKey" function
+                       (:throws ("Exception")
+                        :typemodifiers ("private")
+                        :arguments 
+                          ( ("arrBTmp" variable
+                               (:dereference 1
+                                :type "byte")
+                                (reparse-symbol formal_parameters) [2010 2024]))                          
+                        :type "Key")
+                        (reparse-symbol class_member_declaration) [1991 2259]))                  
+                :type "class")
+                nil [113 2261]))          
+      :file "DesUtils.java"
+      :pointmax 2262
+      :fsize 2261
+      :lastmodtime '(21961 50820 655184 743000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!agnes_walle!code!src!main!java!com!letv!parser!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

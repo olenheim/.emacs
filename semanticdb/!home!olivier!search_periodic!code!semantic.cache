@@ -1,0 +1,37 @@
+;; Object code/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "code/"
+  :tables
+  (list
+    (semanticdb-table "sendmail.py"
+      :major-mode 'python-mode
+      :tags 
+        '( ("datetime" include nil nil [48 94])
+            ("sys" include nil nil [48 94])
+            ("mimetypes" include nil nil [48 94])
+            ("smtplib" include nil nil [48 94])
+            ("os" include nil nil [48 94])
+            ("email.mime.text" include nil nil [95 131])
+            ("email.mime.image" include nil nil [134 172])
+            ("email.mime.multipart" include nil nil [175 221])
+            ("if" code nil nil [225 358])
+            ("print" code nil nil [359 393])
+            ("print" code nil nil [394 428])
+            ("MAIL_LIST" variable nil nil [430 462])
+            ("MAIL_HOST" variable nil nil [463 491])
+            ("MAIL_USER" variable nil nil [493 525])
+            ("MAIL_PASS" variable nil nil [526 551])
+            ("MAIL_FROM" variable nil nil [552 601])
+            ("send_mail" function (:arguments 
+              ( ("subject" variable nil (reparse-symbol function_parameters) [618 625])
+                ("content" variable nil (reparse-symbol function_parameters) [627 634])
+                ("filename" variable nil (reparse-symbol function_parameters) [636 644]))              ) nil [604 1761])
+            ("if" code nil nil [1763 1934]))          
+      :file "sendmail.py"
+      :pointmax 1934
+      :fsize 1955
+      :lastmodtime '(21960 3839 34430 780000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!search_periodic!code!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

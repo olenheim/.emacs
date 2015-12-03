@@ -1,0 +1,304 @@
+;; Object letv/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "letv/"
+  :tables
+  (list
+    (semanticdb-table "WalleMapper.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.mapper" package nil nil [1 25])
+            ("org.apache.hadoop.io.Text" include nil nil [27 60])
+            ("org.apache.hadoop.io.BytesWritable" include nil nil [61 103])
+            ("org.apache.hadoop.mapreduce.Mapper" include nil nil [104 146])
+            ("java.io.IOException" include nil nil [147 174])
+            ("java.io.FileInputStream" include nil nil [175 206])
+            ("org.apache.hadoop.hive.serde2.columnar.BytesRefWritable" include nil nil [207 270])
+            ("org.apache.hadoop.hive.serde2.columnar.BytesRefArrayWritable" include nil nil [271 339])
+            ("org.apache.hadoop.conf.Configuration" include nil nil [340 384])
+            ("org.apache.hadoop.hive.ql.io.RCFile" include nil nil [385 428])
+            ("org.apache.hadoop.util.ReflectionUtils" include nil nil [430 476])
+            ("com.letv.conf.WalleConf" include nil nil [478 509])
+            ("com.letv.parser.BaseParser" include nil nil [510 544])
+            ("com.letv.parser.DataBox" include nil nil [545 576])
+            ("com.letv.parser.HeartbeatParser" include nil nil [577 616])
+            ("com.google.protobuf.InvalidProtocolBufferException" include nil nil [618 676]))          
+      :file "WalleMapper.java"
+      :pointmax 3715
+      :fsize 3714
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax '((BRACE_BLOCK 774 . 3711) (GT 772 . 773) (IDENTIFIER 751 . 772) (COMMA 749 . 750) (IDENTIFIER 745 . 749) (COMMA 743 . 744) (IDENTIFIER 730 . 743) (COMMA 728 . 729) (IDENTIFIER 722 . 728) (PUBLIC 678 . 684) (LT 721 . 722)))
+    (semanticdb-table "WalleConf.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.conf" package nil nil [1 23])
+            ("java.net.URI" include nil nil [24 44])
+            ("java.util.Properties" include nil nil [46 74])
+            ("java.io.IOException" include nil nil [75 102])
+            ("org.apache.hadoop.filecache.DistributedCache" include nil nil [103 155])
+            ("org.apache.hadoop.fs.PathFilter" include nil nil [156 195])
+            ("org.apache.hadoop.fs.FileSystem" include nil nil [196 235])
+            ("org.apache.hadoop.fs.Path" include nil nil [236 269])
+            ("org.apache.hadoop.fs.FileSystem" include nil nil [270 309])
+            ("org.apache.hadoop.fs.FileStatus" include nil nil [310 349])
+            ("org.apache.hadoop.conf.Configuration" include nil nil [350 394])
+            ("java.io.FileInputStream" include nil nil [395 426])
+            ("java.net.URISyntaxException" include nil nil [427 462])
+            ("WalleConf" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("p" variable
+                       (:typemodifiers ("private" "static")
+                        :type "Properties")
+                        (reparse-symbol class_member_declaration) [494 541])
+                    ("getFileListSize" function
+                       (:throws ("IOException")
+                        :typemodifiers ("private" "static")
+                        :arguments 
+                          ( ("fs" variable (:type "FileSystem") (reparse-symbol formal_parameters) [580 593])
+                            ("path" variable (:type "Path") (reparse-symbol formal_parameters) [595 604]))                          
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [545 1217])
+                    ("wait" function
+                       (:throws ("IOException" "InterruptedException")
+                        :typemodifiers ("private" "static")
+                        :arguments 
+                          ( ("fs" variable (:type "FileSystem") (reparse-symbol formal_parameters) [1254 1267])
+                            ("in" variable (:type "Path") (reparse-symbol formal_parameters) [1269 1276])
+                            ("size" variable (:type "int") (reparse-symbol formal_parameters) [1278 1286])
+                            ("forced" variable (:type "boolean") (reparse-symbol formal_parameters) [1288 1302]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [1226 2081])
+                    ("init" function
+                       (:throws ("IOException" "InterruptedException" "URISyntaxException")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("conf" variable (:type "Configuration") (reparse-symbol formal_parameters) [2117 2135])
+                            ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [2137 2150]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [2090 2977])
+                    ("input" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2983 3025])
+                    ("output" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3029 3072])
+                    ("DELIM" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3076 3114])
+                    ("separator" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3118 3158])
+                    ("get" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("Key" variable (:type "String") (reparse-symbol formal_parameters) [3191 3201]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3166 3239])
+                    ("parserType" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3245 3292])
+                    ("logType" variable
+                       (:typemodifiers ("public" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [3298 3342])
+                    ("WalleConf" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [3373 3386]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [3350 3393]))                  
+                :type "class")
+                nil [464 3396]))          
+      :file "WalleConf.java"
+      :pointmax 3397
+      :fsize 3396
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "WalleMultipleRCFileOutputFormat.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.outputformat" package nil nil [1 31])
+            ("java.io.IOException" include nil nil [33 60])
+            ("java.util.HashMap" include nil nil [61 86])
+            ("org.apache.hadoop.conf.Configuration" include nil nil [88 132])
+            ("org.apache.hadoop.fs.FileSystem" include nil nil [133 172])
+            ("org.apache.hadoop.fs.Path" include nil nil [173 206])
+            ("org.apache.hadoop.hive.ql.io.RCFile" include nil nil [207 250])
+            ("org.apache.hadoop.hive.serde2.columnar.BytesRefArrayWritable" include nil nil [251 319])
+            ("org.apache.hadoop.io.WritableComparable" include nil nil [320 367])
+            ("org.apache.hadoop.io.compress.CompressionCodec" include nil nil [368 422])
+            ("org.apache.hadoop.io.compress.DefaultCodec" include nil nil [423 473])
+            ("org.apache.hadoop.mapreduce.RecordWriter" include nil nil [474 522])
+            ("org.apache.hadoop.io.compress.GzipCodec" include nil nil [523 570])
+            ("org.apache.hadoop.mapreduce.TaskAttemptContext" include nil nil [571 625])
+            ("org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter" include nil nil [626 692])
+            ("org.apache.hadoop.mapreduce.lib.output.FileOutputFormat" include nil nil [693 756])
+            ("org.apache.hadoop.util.ReflectionUtils" include nil nil [757 803])
+            ("WalleMultipleRCFileOutputFormat" type
+               (:typemodifiers ("public")
+                :superclasses "FileOutputFormat"
+                :members 
+                  ( ("prefix" variable
+                       (:typemodifiers ("private" "static")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [915 951])
+                    ("setColumnNumber" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("conf" variable (:type "Configuration") (reparse-symbol formal_parameters) [1291 1309])
+                            ("columnNum" variable (:type "int") (reparse-symbol formal_parameters) [1311 1324]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1256 1416])
+                    ("getColumnNumber" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("conf" variable (:type "Configuration") (reparse-symbol formal_parameters) [1603 1621]))                          
+                        :type "int")
+                        (reparse-symbol class_member_declaration) [1569 1686])
+                    ("WalleMultipleRCFileOutputFormat" function
+                       (:constructor-flag t
+                        :typemodifiers ("public"))
+                        (reparse-symbol class_member_declaration) [1692 1794])
+                    ("getDefaultWorkFile" function
+                       (:throws ("IOException")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("context" variable (:type "TaskAttemptContext") (reparse-symbol formal_parameters) [1841 1867])
+                            ("extension" variable (:type "String") (reparse-symbol formal_parameters) [1869 1885]))                          
+                        :type "Path")
+                        (reparse-symbol class_member_declaration) [1810 2213])
+                    ("getRCFileWriter" function
+                       (:throws ("IOException")
+                        :typemodifiers ("protected")
+                        :arguments 
+                          ( ("job" variable (:type "TaskAttemptContext") (reparse-symbol formal_parameters) [2257 2279])
+                            ("key" variable (:type "WritableComparable") (reparse-symbol formal_parameters) [2280 2302]))                          
+                        :type "RCFile.Writer")
+                        (reparse-symbol class_member_declaration) [2217 3256])
+                    ("getRecordWriter" function
+                       (:constructor-flag t
+                        :throws ("IOException" "InterruptedException")
+                        :arguments 
+                          ( ("job" variable (:type "TaskAttemptContext") (reparse-symbol formal_parameters) [4347 4369]))                          )
+                        (reparse-symbol class_member_declaration) [4324 4451]))                  
+                :type "class")
+                nil [840 4453]))          
+      :file "WalleMultipleRCFileOutputFormat.java"
+      :pointmax 4454
+      :fsize 4453
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax '((GT 4322 . 4323) (COMMA 4299 . 4300) (IDENTIFIER 4249 . 4258) (PUBLIC 4261 . 4267) (LT 4280 . 4281) (GT 3418 . 3419) (COMMA 3395 . 3396) (STATIC 3326 . 3332) (LT 3376 . 3377) (SEMICOLON 1011 . 1012) (EQ 1005 . 1006) (GT 991 . 992) (COMMA 976 . 977) (PUBLIC 955 . 961) (LT 969 . 970)))
+    (semanticdb-table "WalleRecordReader.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.RecordReader" package nil nil [1 31])
+            ("java.io.IOException" include nil nil [32 59])
+            ("java.io.InputStream" include nil nil [60 87])
+            ("org.apache.hadoop.conf.Configuration" include nil nil [88 132])
+            ("org.apache.hadoop.fs.FSDataInputStream" include nil nil [133 179])
+            ("org.apache.hadoop.fs.FileSystem" include nil nil [180 219])
+            ("org.apache.hadoop.fs.Path" include nil nil [220 253])
+            ("org.apache.hadoop.io.LongWritable" include nil nil [254 295])
+            ("org.apache.hadoop.io.BytesWritable" include nil nil [296 338])
+            ("org.apache.hadoop.io.compress.CompressionCodec" include nil nil [339 393])
+            ("org.apache.hadoop.io.compress.CompressionCodecFactory" include nil nil [394 455])
+            ("org.apache.hadoop.mapreduce.InputSplit" include nil nil [456 502])
+            ("org.apache.hadoop.mapreduce.RecordReader" include nil nil [503 551])
+            ("org.apache.hadoop.mapreduce.TaskAttemptContext" include nil nil [552 606])
+            ("org.apache.hadoop.mapreduce.lib.input.FileSplit" include nil nil [607 662])
+            ("com.letv.conf.WalleConf" include nil nil [664 695]))          
+      :file "WalleRecordReader.java"
+      :pointmax 8631
+      :fsize 9022
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax '((BRACE_BLOCK 995 . 8630) (GT 993 . 994) (IDENTIFIER 980 . 993) (COMMA 978 . 979) (IDENTIFIER 966 . 978) (PUBLIC 914 . 920) (LT 965 . 966)))
+    (semanticdb-table "WalleJob.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.job" package nil nil [1 22])
+            ("java.io.IOException" include nil nil [24 51])
+            ("org.apache.hadoop.fs.Path" include nil nil [52 85])
+            ("org.apache.hadoop.conf.Configuration" include nil nil [86 130])
+            ("org.apache.hadoop.io.Text" include nil nil [131 164])
+            ("org.apache.hadoop.fs.FileSystem" include nil nil [165 204])
+            ("org.apache.hadoop.mapreduce.Job" include nil nil [205 244])
+            ("org.apache.hadoop.mapreduce.lib.input.FileInputFormat" include nil nil [245 306])
+            ("org.apache.hadoop.mapreduce.lib.output.FileOutputFormat" include nil nil [307 370])
+            ("org.apache.hadoop.hive.serde2.columnar.BytesRefArrayWritable" include nil nil [371 439])
+            ("org.apache.hadoop.io.WritableComparable" include nil nil [440 487])
+            ("com.letv.mapper.WalleMapper" include nil nil [489 524])
+            ("com.letv.conf.WalleConf" include nil nil [525 556])
+            ("com.letv.InputFormat.WalleInputFormat" include nil nil [557 602])
+            ("com.letv.outputformat.WalleMultipleRCFileOutputFormat" include nil nil [603 664])
+            ("org.apache.hadoop.mapreduce.InputFormat" include nil nil [665 712])
+            ("WalleJob" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("run" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [828 841]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [812 2100])
+                    ("removeFolder" function
+                       (:throws ("Exception")
+                        :typemodifiers ("private")
+                        :arguments 
+                          ( ("path" variable (:type "Path") (reparse-symbol formal_parameters) [2130 2139])
+                            ("conf" variable (:type "Configuration") (reparse-symbol formal_parameters) [2141 2159]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2104 2285]))                  
+                :type "class")
+                nil [714 2324]))          
+      :file "WalleJob.java"
+      :pointmax 2325
+      :fsize 2324
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil)
+    (semanticdb-table "WalleInputFormat.java"
+      :file "WalleInputFormat.java"
+      :fsize 847
+      :lastmodtime '(21954 49887 248446 272000))
+    (semanticdb-table "WalleMain.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv" package nil nil [1 18])
+            ("com.letv.job.WalleJob" include nil nil [20 49])
+            ("WalleMain" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("main" function
+                       (:throws ("Exception")
+                        :typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [174 187]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [150 280]))                  
+                :type "class")
+                nil [51 282]))          
+      :file "WalleMain.java"
+      :pointmax 283
+      :fsize 282
+      :lastmodtime '(21954 49887 248446 272000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!agnes_walle!code!src!main!java!com!letv!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

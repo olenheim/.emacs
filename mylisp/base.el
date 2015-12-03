@@ -78,8 +78,6 @@
 
 ;;======================================================================  
   
-  
-  
 ;;======================================================================  
 ;;状态栏  
 ;;======================================================================  
@@ -166,10 +164,10 @@
 (set-clipboard-coding-system 'ctext)  
   
 ;;设置TAB宽度为4  
-;;(setq default-tab-width 4)   
+(setq default-tab-width 2)   
 ;;以下设置缩进  
 ;;用tab缩进  
-(setq indent-tabs-mode t)  
+;;(setq indent-tabs-mode t)  
 (setq c-indent-level 4)  
 (setq c-continued-statement-offset 4)  
 (setq c-brace-offset -4)  

@@ -1,0 +1,930 @@
+;; Object parser/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "parser/"
+  :tables
+  (list
+    (semanticdb-table "PvParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.io.UnsupportedEncodingException" include nil nil [32 76])
+            ("java.security.MessageDigest" include nil nil [77 112])
+            ("java.security.NoSuchAlgorithmException" include nil nil [113 159])
+            ("org.apache.hadoop.io.Text" include nil nil [161 194])
+            ("com.letv.data.utils.DomainUtil" include nil nil [196 234])
+            ("com.letv.data.utils.Flag" include nil nil [235 267])
+            ("com.letv.data.utils.NumberUtil" include nil nil [268 306])
+            ("com.letv.data.utils.PVChannel" include nil nil [307 344])
+            ("com.letv.data.utils.StringUtil" include nil nil [345 383])
+            ("com.letv.data.utils.Url" include nil nil [384 415])
+            ("PvParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [462 499])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [502 545])
+                    ("urlparser" variable (:type "UrlParser") (reparse-symbol class_member_declaration) [548 587])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [639 650])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [652 660]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [610 7176])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [7205 7225])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [7227 7235]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7182 7312])
+                    ("getMD5Str" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("str" variable (:type "String") (reparse-symbol formal_parameters) [7349 7359]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [7318 8185]))                  
+                :type "class")
+                nil [417 8187]))          
+      :file "PvParser.java"
+      :pointmax 8188
+      :fsize 8453
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "Parser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("org.apache.hadoop.io.Text" include nil nil [32 65])
+            ("Parser" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("hasNext" function (:type "boolean") (reparse-symbol interface_member_declaration) [123 141])
+                    ("getNextValue" function (:type "Text") (reparse-symbol interface_member_declaration) [143 163])
+                    ("formatLogLine" function
+                       (:arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [188 199])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [201 209]))                          
+                        :type "boolean")
+                        (reparse-symbol interface_member_declaration) [166 211])
+                    ("setFieldList" function
+                       (:arguments 
+                          ( ("logName" variable (:type "String") (reparse-symbol formal_parameters) [231 245]))                          
+                        :type "void")
+                        (reparse-symbol interface_member_declaration) [213 247]))                  
+                :type "interface")
+                nil [96 249]))          
+      :file "Parser.java"
+      :pointmax 250
+      :fsize 263
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AdCommonParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("org.apache.hadoop.io.Text" include nil nil [32 65])
+            ("com.letv.data.parser.AdOldParser" include nil nil [67 107])
+            ("com.letv.data.utils.ActUtil" include nil nil [108 143])
+            ("com.letv.data.utils.ValueUtil" include nil nil [144 181])
+            ("AdCommonParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [233 270])
+                    ("actUtil" variable (:type "ActUtil") (reparse-symbol class_member_declaration) [272 344])
+                    ("valueUtil" variable (:type "ValueUtil") (reparse-symbol class_member_declaration) [346 384])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [386 429])
+                    ("adOldParser" variable (:type "AdOldParser") (reparse-symbol class_member_declaration) [431 475])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [519 530])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [532 540]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [490 799])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "String") (reparse-symbol formal_parameters) [826 839]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [803 895]))                  
+                :type "class")
+                nil [183 897]))          
+      :file "AdCommonParser.java"
+      :pointmax 898
+      :fsize 897
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AdOldParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.util.Map" include nil nil [32 53])
+            ("org.apache.hadoop.io.Text" include nil nil [55 88])
+            ("com.letv.data.utils.ActUtil" include nil nil [90 125])
+            ("com.letv.data.utils.ActionInfo" include nil nil [126 164])
+            ("com.letv.data.utils.Url" include nil nil [165 196])
+            ("com.letv.data.utils.ValueUtil" include nil nil [197 234])
+            ("AdOldParser" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [264 301])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [303 346])
+                    ("formatAdOldLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [383 394])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [396 404])
+                            ("actUtil" variable (:type "ActUtil") (reparse-symbol formal_parameters) [406 421])
+                            ("valueUtil" variable (:type "ValueUtil") (reparse-symbol formal_parameters) [423 442]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [350 4329])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [4357 4377])
+                            ("t" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [4379 4389]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [4332 4561])
+                    ("getAdId" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("id" variable (:type "String") (reparse-symbol formal_parameters) [4594 4603]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [4565 5442])
+                    ("getUvid" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("arr" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [5474 5486])
+                            ("url" variable (:type "Url") (reparse-symbol formal_parameters) [5488 5495]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [5445 5749]))                  
+                :type "class")
+                nil [236 5751]))          
+      :file "AdOldParser.java"
+      :pointmax 5752
+      :fsize 5997
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "AdNewParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.util.List" include nil nil [32 54])
+            ("org.apache.hadoop.io.Text" include nil nil [56 89])
+            ("com.letv.data.json.JsonObject" include nil nil [91 128])
+            ("AdNewParser" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [158 195])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [198 241])
+                    ("urlParser" variable (:type "UrlParser") (reparse-symbol class_member_declaration) [244 283])
+                    ("formatAdNewLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [321 332])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [334 342])
+                            ("" variable (:type "configuredFields") (reparse-symbol formal_parameters) [361 377]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [288 1180])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [1207 1227])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [1229 1237]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1184 1312]))                  
+                :type "class")
+                nil [130 1314]))          
+      :file "AdNewParser.java"
+      :pointmax 1315
+      :fsize 1314
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax '((GT 359 . 360) (IDENTIFIER 344 . 348) (LT 348 . 349)))
+    (semanticdb-table "AdParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.util.Map" include nil nil [32 53])
+            ("org.apache.hadoop.io.Text" include nil nil [55 88])
+            ("com.letv.data.utils.ActUtil" include nil nil [90 125])
+            ("com.letv.data.utils.ActionInfo" include nil nil [126 164])
+            ("com.letv.data.utils.NumberUtil" include nil nil [165 203])
+            ("com.letv.data.utils.Url" include nil nil [204 235])
+            ("com.letv.data.utils.ValueUtil" include nil nil [236 273])
+            ("AdParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [319 356])
+                    ("actUtil" variable (:type "ActUtil") (reparse-symbol class_member_declaration) [358 430])
+                    ("valueUtil" variable (:type "ValueUtil") (reparse-symbol class_member_declaration) [432 470])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [472 515])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [559 570])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [572 580]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [530 7222])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [7248 7268])
+                            ("t" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [7270 7280]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [7225 7485])
+                    ("getErrorCode" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("id" variable (:type "String") (reparse-symbol formal_parameters) [7534 7543])
+                            ("error" variable (:type "String") (reparse-symbol formal_parameters) [7545 7557]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [7506 7890])
+                    ("getErrorCodeNew" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("ord" variable (:type "String") (reparse-symbol formal_parameters) [7945 7955])
+                            ("error" variable (:type "String") (reparse-symbol formal_parameters) [7957 7969]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [7914 8290])
+                    ("getlast_err" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("id" variable (:type "String") (reparse-symbol formal_parameters) [8340 8349])
+                            ("error" variable (:type "String") (reparse-symbol formal_parameters) [8351 8363]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [8313 8697])
+                    ("getlast_errNew" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("ord" variable (:type "String") (reparse-symbol formal_parameters) [8750 8760])
+                            ("error" variable (:type "String") (reparse-symbol formal_parameters) [8762 8774]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [8720 9096])
+                    ("getAdId" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("id" variable (:type "String") (reparse-symbol formal_parameters) [9128 9137]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [9099 9976])
+                    ("getUuid" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("arr" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [10008 10020])
+                            ("url" variable (:type "Url") (reparse-symbol formal_parameters) [10022 10029]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [9979 10283]))                  
+                :type "class")
+                nil [275 10285]))          
+      :file "AdParser.java"
+      :pointmax 10286
+      :fsize 10772
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "BaseMobileParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("com.letv.data.utils.ActUtil" include nil nil [32 67])
+            ("com.letv.data.utils.ActionInfo" include nil nil [68 106])
+            ("com.letv.data.utils.CidMap" include nil nil [107 141])
+            ("com.letv.data.utils.ErrorBrand" include nil nil [142 180])
+            ("com.letv.data.utils.Url" include nil nil [181 212])
+            ("com.letv.data.utils.UserInfo" include nil nil [213 249])
+            ("com.letv.data.utils.ValueUtil" include nil nil [250 287])
+            ("com.letv.data.utils.iplib.IPUtil" include nil nil [288 328])
+            ("com.letv.data.ipbase.IpLocater" include nil nil [329 367])
+            ("java.text.ParseException" include nil nil [368 400])
+            ("java.text.SimpleDateFormat" include nil nil [401 435])
+            ("java.util.ArrayList" include nil nil [436 463])
+            ("java.util.Date" include nil nil [464 486])
+            ("java.util.HashMap" include nil nil [487 512])
+            ("java.util.Iterator" include nil nil [513 539])
+            ("java.util.List" include nil nil [540 562])
+            ("java.util.Locale" include nil nil [563 587])
+            ("java.util.Map" include nil nil [588 609])
+            ("java.util.Map.Entry" include nil nil [610 637])
+            ("org.apache.hadoop.io.Text" include nil nil [638 671])
+            ("BaseMobileParser" type
+               (:typemodifiers ("public" "abstract")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [734 771])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [773 816])
+                    ("valueUtil" variable
+                       (:typemodifiers ("private")
+                        :type "ValueUtil")
+                        (reparse-symbol class_member_declaration) [819 865])
+                    ("actUtil" variable
+                       (:typemodifiers ("private")
+                        :type "ActUtil")
+                        (reparse-symbol class_member_declaration) [868 971])
+                    ("actionType" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [974 1007])
+                    ("ACTION_TYPE_L" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1010 1047])
+                    ("ACTION_TYPE_P" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1049 1086])
+                    ("ACTION_TYPE_A" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1088 1125])
+                    ("ACTION_TYPE_C" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1127 1164])
+                    ("ACTION_TYPE_E" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1166 1203])
+                    ("cidMap" variable (:type "CidMap") (reparse-symbol class_member_declaration) [1349 1378])
+                    ("process" function
+                       (:typemodifiers ("protected")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [1407 1418])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [1420 1428]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [1381 29517])
+                    ("p2new" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [29538 29558])
+                            ("data" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [29560 29573])
+                            ("logformat" variable (:type "LogParser") (reparse-symbol formal_parameters) [29575 29594]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [29520 31960])
+                    ("l2new" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("result2" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [31981 32002])
+                            ("data" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [32004 32017])
+                            ("logformat" variable (:type "LogParser") (reparse-symbol formal_parameters) [32019 32038]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [31963 35099])
+                    ("getP2" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("app" variable (:type "String") (reparse-symbol formal_parameters) [35123 35133]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [35102 36114])
+                    ("getPlatform" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("os" variable (:type "String") (reparse-symbol formal_parameters) [36144 36153])
+                            ("terminaltype" variable (:type "String") (reparse-symbol formal_parameters) [36155 36174]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [36117 36865])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [36891 36911])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [36913 36921]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [36868 37002])
+                    ("actionType" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("logStr" variable (:type "String") (reparse-symbol formal_parameters) [37030 37043]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [37005 37716]))                  
+                :type "class")
+                nil [673 37718]))          
+      :file "BaseMobileParser.java"
+      :pointmax 37718
+      :fsize 37717
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax '((SEMICOLON 1345 . 1346) (PAREN_BLOCK 1343 . 1345) (GT 1342 . 1343) (LT 1333 . 1334) (NEW 1320 . 1323) (EQ 1318 . 1319) (GT 1304 . 1305) (LT 1295 . 1296) (SEMICOLON 1287 . 1288) (DOT 1273 . 1274) (PAREN_BLOCK 1271 . 1273) (EQ 1247 . 1248) (GT 1231 . 1232) (COMMA 1223 . 1224) (PUBLIC 1206 . 1212) (LT 1216 . 1217)))
+    (semanticdb-table "BaseParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [13 42])
+            ("java.util.ArrayList" include nil nil [44 71])
+            ("java.util.LinkedList" include nil nil [72 100])
+            ("java.util.List" include nil nil [101 123])
+            ("org.apache.hadoop.io.Text" include nil nil [125 158])
+            ("com.letv.data.json.JsonObject" include nil nil [160 197])
+            ("com.letv.data.json.JsonParser" include nil nil [198 235])
+            ("BaseParser" type
+               (:typemodifiers ("public" "abstract")
+                :interfaces ("Parser")
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("public" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [321 365])
+                    ("JSONPATH" variable
+                       (:typemodifiers ("public" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [367 425])
+                    ("jParser" variable
+                       (:typemodifiers ("protected")
+                        :type "JsonParser")
+                        (reparse-symbol class_member_declaration) [427 475])
+                    ("logName" variable
+                       (:typemodifiers ("protected")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [614 644])
+                    ("getNextValue" function
+                       (:typemodifiers ("public")
+                        :type "Text")
+                        (reparse-symbol class_member_declaration) [658 782])
+                    ("hasNext" function
+                       (:typemodifiers ("public")
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [796 853])
+                    ("setFieldList" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("logName" variable (:type "String") (reparse-symbol formal_parameters) [892 906]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [867 974])
+                    ("getLogName" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [977 1026])
+                    ("setLogName" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("logName" variable (:type "String") (reparse-symbol formal_parameters) [1052 1066]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1029 1098]))                  
+                :type "class")
+                nil [267 1101]))          
+      :file "BaseParser.java"
+      :pointmax 1102
+      :fsize 1156
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax '((SEMICOLON 611 . 612) (PAREN_BLOCK 609 . 611) (GT 608 . 609) (LT 603 . 604) (NEW 589 . 592) (EQ 587 . 588) (GT 578 . 579) (LT 573 . 574) (SEMICOLON 550 . 551) (PAREN_BLOCK 548 . 550) (GT 547 . 548) (LT 536 . 537) (NEW 523 . 526) (EQ 521 . 522) (GT 502 . 503) (PROTECTED 477 . 486) (LT 491 . 492)))
+    (semanticdb-table "LogParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("com.letv.data.ipbase.IpLocater" include nil nil [32 70])
+            ("com.letv.data.utils.Formater" include nil nil [71 107])
+            ("LogParser" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("ip" variable (:type "String") (reparse-symbol class_member_declaration) [324 347])
+                    ("inu" variable (:type "String") (reparse-symbol class_member_declaration) [349 372])
+                    ("area" variable (:type "String") (reparse-symbol class_member_declaration) [374 397])
+                    ("city" variable (:type "String") (reparse-symbol class_member_declaration) [399 422])
+                    ("cookie" variable (:type "String") (reparse-symbol class_member_declaration) [424 447])
+                    ("country" variable (:type "String") (reparse-symbol class_member_declaration) [449 472])
+                    ("request" variable (:type "String") (reparse-symbol class_member_declaration) [474 497])
+                    ("province" variable (:type "String") (reparse-symbol class_member_declaration) [499 522])
+                    ("timeLocal" variable (:type "String") (reparse-symbol class_member_declaration) [524 547])
+                    ("LogParser" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("log" variable (:type "String") (reparse-symbol formal_parameters) [568 578]))                          )
+                        (reparse-symbol class_member_declaration) [551 1228])
+                    ("getIp" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1231 1270])
+                    ("setIp" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("ip" variable (:type "String") (reparse-symbol formal_parameters) [1291 1300]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1273 1322])
+                    ("getRequest" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1325 1374])
+                    ("setRequest" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("request" variable (:type "String") (reparse-symbol formal_parameters) [1400 1414]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1377 1446])
+                    ("getTimeLocal" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1449 1502])
+                    ("setTimeLocal" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("timeLocal" variable (:type "String") (reparse-symbol formal_parameters) [1530 1546]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1505 1582])
+                    ("getInu" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1585 1626])
+                    ("setInu" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("inu" variable (:type "String") (reparse-symbol formal_parameters) [1648 1658]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1629 1682])
+                    ("getArea" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1685 1728])
+                    ("setArea" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("area" variable (:type "String") (reparse-symbol formal_parameters) [1751 1762]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1731 1788])
+                    ("getCity" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1791 1834])
+                    ("setCity" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("city" variable (:type "String") (reparse-symbol formal_parameters) [1857 1868]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1837 1894])
+                    ("getCookie" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1897 1944])
+                    ("setCookie" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("cookie" variable (:type "String") (reparse-symbol formal_parameters) [1969 1982]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1947 2012])
+                    ("getCountry" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2015 2064])
+                    ("setCountry" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("country" variable (:type "String") (reparse-symbol formal_parameters) [2090 2104]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2067 2136])
+                    ("getProvince" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2139 2190])
+                    ("setProvince" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("province" variable (:type "String") (reparse-symbol formal_parameters) [2217 2232]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2193 2266]))                  
+                :type "class")
+                nil [298 2269]))          
+      :file "LogParser.java"
+      :pointmax 2270
+      :fsize 2269
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "MPZParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.io.UnsupportedEncodingException" include nil nil [32 76])
+            ("java.security.MessageDigest" include nil nil [77 112])
+            ("java.security.NoSuchAlgorithmException" include nil nil [113 159])
+            ("org.apache.hadoop.io.Text" include nil nil [161 194])
+            ("com.letv.data.utils.CidMap" include nil nil [196 230])
+            ("com.letv.data.utils.NginxLogFormat" include nil nil [231 273])
+            ("com.letv.data.utils.Url" include nil nil [274 305])
+            ("MPZParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [353 390])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [393 436])
+                    ("cidMap" variable (:type "CidMap") (reparse-symbol class_member_declaration) [439 468])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [517 528])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [530 538]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [488 6529])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [6558 6578])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [6580 6588]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [6535 6665])
+                    ("getMD5Str" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("str" variable (:type "String") (reparse-symbol formal_parameters) [6702 6712]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [6671 7566]))                  
+                :type "class")
+                nil [307 7568]))          
+      :file "MPZParser.java"
+      :pointmax 7569
+      :fsize 7568
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "UrlParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.net.URLDecoder" include nil nil [32 59])
+            ("java.util.HashMap" include nil nil [60 85])
+            ("java.util.List" include nil nil [86 108])
+            ("java.util.Map" include nil nil [109 130])
+            ("net.sf.json.JSONArray" include nil nil [132 161])
+            ("org.apache.hadoop.io.Text" include nil nil [163 196])
+            ("com.letv.data.ipbase.FindProvider" include nil nil [198 239])
+            ("com.letv.data.ipbase.IpLocater" include nil nil [240 278])
+            ("com.letv.data.json.JsonObject" include nil nil [279 316])
+            ("com.letv.data.utils.iplib.EvilIp" include nil nil [317 357])
+            ("com.letv.dataClean.DataClean" include nil nil [358 394])
+            ("UrlParser" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("DELIM" variable
+                       (:typemodifiers ("public" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [611 655])
+                    ("DECODE" variable
+                       (:typemodifiers ("public" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [657 701])
+                    ("logName" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [703 731])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [734 777])
+                    ("getUrlFields" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("url" variable (:type "String") (reparse-symbol formal_parameters) [871 881])
+                            ("" variable (:type "String") (reparse-symbol formal_parameters) [887 893])
+                            ("" variable (:type "fieldsMap") (reparse-symbol formal_parameters) [903 912]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [846 1328])
+                    ("getCdnIp" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("plurl" variable (:type "String") (reparse-symbol formal_parameters) [1361 1373]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1331 1826])
+                    ("decode" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("string" variable (:type "String") (reparse-symbol formal_parameters) [1857 1870]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1829 2022])
+                    ("replace" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("string" variable (:type "String") (reparse-symbol formal_parameters) [2054 2067]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2025 2220])
+                    ("buildResult" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("url" variable (:type "String") (reparse-symbol formal_parameters) [2305 2315])
+                            ("ip" variable (:type "String") (reparse-symbol formal_parameters) [2317 2326])
+                            ("" variable (:type "actAttr") (reparse-symbol formal_parameters) [2345 2352])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [2354 2362]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [2279 4232])
+                    ("getLogName" function
+                       (:typemodifiers ("public")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [4235 4284])
+                    ("setLogName" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("logName" variable (:type "String") (reparse-symbol formal_parameters) [4310 4324]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [4287 4356]))                  
+                :type "class")
+                nil [396 4360]))          
+      :file "UrlParser.java"
+      :pointmax 4361
+      :fsize 4384
+      :lastmodtime '(21657 16052 306032 566000)
+      :unmatched-syntax '((GT 2343 . 2344) (IDENTIFIER 2328 . 2332) (LT 2332 . 2333) (IDENTIFIER 895 . 901) (GT 901 . 902) (IDENTIFIER 883 . 886) (LT 886 . 887) (SEMICOLON 842 . 843) (PAREN_BLOCK 840 . 842) (GT 839 . 840) (COMMA 831 . 832) (LT 824 . 825) (NEW 813 . 816) (EQ 811 . 812) (GT 797 . 798) (COMMA 789 . 790) (IDENTIFIER 779 . 782) (LT 782 . 783)))
+    (semanticdb-table "VqActionParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.util.Map" include nil nil [32 53])
+            ("org.apache.commons.lang.StringUtils" include nil nil [55 98])
+            ("org.apache.hadoop.io.Text" include nil nil [99 132])
+            ("com.letv.data.ipbase.IpLocater" include nil nil [134 172])
+            ("com.letv.data.utils.ActUtil" include nil nil [173 208])
+            ("com.letv.data.utils.ActionInfo" include nil nil [209 247])
+            ("com.letv.data.utils.LocationUtil" include nil nil [248 288])
+            ("com.letv.data.utils.NumberUtil" include nil nil [289 327])
+            ("com.letv.data.utils.PvPageDataParseJob" include nil nil [328 374])
+            ("com.letv.data.utils.TuiguangForVq" include nil nil [375 416])
+            ("com.letv.data.utils.Url" include nil nil [417 448])
+            ("com.letv.data.utils.ValueUtil" include nil nil [449 486])
+            ("VqActionParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("VQ_ACTION_TYPE" variable
+                       (:typemodifiers ("private" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [542 584])
+                    ("MINUTE" variable
+                       (:typemodifiers ("private" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [597 639])
+                    ("MIN_UTIME" variable
+                       (:typemodifiers ("private" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [644 687])
+                    ("MAX_UTIME" variable
+                       (:typemodifiers ("private" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [692 736])
+                    ("NUll_UTIME" variable
+                       (:typemodifiers ("private" "final")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [741 775])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [785 828])
+                    ("valueUtil" variable (:type "ValueUtil") (reparse-symbol class_member_declaration) [834 872])
+                    ("lu" variable (:type "LocationUtil") (reparse-symbol class_member_declaration) [878 934])
+                    ("tf" variable
+                       (:typemodifiers ("static")
+                        :type "TuiguangForVq")
+                        (reparse-symbol class_member_declaration) [940 1001])
+                    ("actUtil" variable (:type "ActUtil") (reparse-symbol class_member_declaration) [1007 1078])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [1127 1138])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [1140 1148]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [1098 8083])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [8112 8132])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [8134 8142]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [8089 8226])
+                    ("getUp" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("up" variable (:type "String") (reparse-symbol formal_parameters) [8253 8262]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [8232 8618])
+                    ("getUTime" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("act" variable (:type "String") (reparse-symbol formal_parameters) [9026 9036])
+                            ("uTime" variable (:type "String") (reparse-symbol formal_parameters) [9038 9050]))                          
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [9005 10203])
+                    ("getUtime" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("act" variable (:type "String") (reparse-symbol formal_parameters) [10236 10246])
+                            ("Utime" variable (:type "String") (reparse-symbol formal_parameters) [10247 10259])
+                            ("ptime" variable (:type "String") (reparse-symbol formal_parameters) [10260 10272])
+                            ("btime" variable (:type "String") (reparse-symbol formal_parameters) [10273 10285]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [10213 10775])
+                    ("getRef" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("ref" variable (:type "String") (reparse-symbol formal_parameters) [10808 10818]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [10780 11273]))                  
+                :type "class")
+                nil [488 11275]))          
+      :file "VqActionParser.java"
+      :pointmax 11276
+      :fsize 11946
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil)
+    (semanticdb-table "VqParser.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.data.parser" package nil nil [1 30])
+            ("java.util.Map" include nil nil [34 55])
+            ("org.apache.commons.lang.StringUtils" include nil nil [59 102])
+            ("org.apache.hadoop.io.Text" include nil nil [104 137])
+            ("com.letv.data.ipbase.IpLocater" include nil nil [141 179])
+            ("com.letv.data.utils.ActUtil" include nil nil [181 216])
+            ("com.letv.data.utils.ActionInfo" include nil nil [218 256])
+            ("com.letv.data.utils.PvPageDataParseJob" include nil nil [258 304])
+            ("com.letv.data.utils.TuiguangForVq" include nil nil [306 347])
+            ("com.letv.data.utils.Url" include nil nil [349 380])
+            ("com.letv.data.utils.ValueUtil" include nil nil [382 419])
+            ("VqParser" type
+               (:typemodifiers ("public")
+                :superclasses "BaseParser"
+                :members 
+                  ( ("tf" variable
+                       (:typemodifiers ("static")
+                        :type "TuiguangForVq")
+                        (reparse-symbol class_member_declaration) [477 538])
+                    ("result" variable (:type "StringBuilder") (reparse-symbol class_member_declaration) [547 590])
+                    ("valueUtil" variable (:type "ValueUtil") (reparse-symbol class_member_declaration) [593 632])
+                    ("actUtil" variable (:type "ActUtil") (reparse-symbol class_member_declaration) [635 786])
+                    ("getLevel" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("act" variable (:type "String") (reparse-symbol formal_parameters) [814 824]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [791 1144])
+                    ("getCode" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("act" variable (:type "String") (reparse-symbol formal_parameters) [1171 1181]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1149 1516])
+                    ("getErr" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("error" variable (:type "String") (reparse-symbol formal_parameters) [1542 1554])
+                            ("act" variable (:type "String") (reparse-symbol formal_parameters) [1556 1566]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1521 1757])
+                    ("formatLogLine" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("data" variable (:type "String") (reparse-symbol formal_parameters) [1803 1814])
+                            ("key" variable (:type "Text") (reparse-symbol formal_parameters) [1816 1824]))                          
+                        :type "boolean")
+                        (reparse-symbol class_member_declaration) [1774 8075])
+                    ("addResult" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("result" variable (:type "StringBuilder") (reparse-symbol formal_parameters) [8103 8123])
+                            ("t" variable (:type "String") (reparse-symbol formal_parameters) [8125 8133]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [8080 8210])
+                    ("getUp" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("up" variable (:type "String") (reparse-symbol formal_parameters) [8280 8289]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [8259 8604])
+                    ("getRef" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("ref" variable (:type "String") (reparse-symbol formal_parameters) [8641 8651]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [8613 9141]))                  
+                :type "class")
+                nil [423 9148]))          
+      :file "VqParser.java"
+      :pointmax 9150
+      :fsize 9149
+      :lastmodtime '(21650 38290 625812 306000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!walle!ParserV2!src!com!letv!data!parser!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,31 @@
+;; Object bigdata/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "bigdata/"
+  :tables
+  (list
+    (semanticdb-table "App.java"
+      :major-mode 'jde-mode
+      :tags 
+        '( ("com.letv.bigdata" package nil nil [1 26])
+            ("App" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("main" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [104 117]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [79 177]))                  
+                :type "class")
+                nil [55 179]))          
+      :file "App.java"
+      :pointmax 180
+      :fsize 179
+      :lastmodtime '(21907 47964 991531 103000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!letv_shop!letv_shop_data!src!main!java!com!letv!bigdata!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

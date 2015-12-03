@@ -1,0 +1,210 @@
+;; Object business/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "business/"
+  :tables
+  (list
+    (semanticdb-table "client.cc"
+      :major-mode 'c++-mode
+      :tags 
+        '( ("business/client.h" include nil nil [1 29])
+            ("boost/bind.hpp" include (:system-flag t) nil [30 55])
+            ("time.h" include (:system-flag t) nil [56 73])
+            ("util/endian.h" include nil nil [74 98])
+            ("util/my_app.h" include nil nil [99 123])
+            ("util/vector_wrapper.h" include nil nil [124 156])
+            ("business/messages/parser.h" include nil nil [157 194])
+            ("business/messages/CommonMsg.pb.h" include nil nil [195 238])
+            ("business/messages/HeartbeatRequest.pb.h" include nil nil [239 289])
+            ("business/messages/LogFileBlock.pb.h" include nil nil [290 336])
+            ("business/messages/ErrorRequest.pb.h" include nil nil [337 383])
+            ("business/messages/AppRequest.pb.h" include nil nil [384 428])
+            ("business/messages/EnvironmentRequest.pb.h" include nil nil [429 481])
+            ("business/messages/EventRequest.pb.h" include nil nil [482 528])
+            ("business/messages/PlayRequest.pb.h" include nil nil [529 574])
+            ("business/messages/MusicPlayRequest.pb.h" include nil nil [575 625])
+            ("business/messages/BatchRequest.pb.h" include nil nil [626 672])
+            ("business/messages/WidgetRequest.pb.h" include nil nil [673 720])
+            ("boost/log/utility/manipulators/add_value.hpp" include (:system-flag t) nil [721 776])
+            ("boost" using (:type ("boost" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [778 800])
+            ("Client::handler_array" variable
+               (:dereference 1
+                :default-value "{&Client::HandleHeartbeatMessage,
+                                                        &Client::HandleSemsMessage,
+                                                        &Client::HandleLogFile,
+                                                        &Client::HandleEnvMessage,
+                                                        &Client::HandleAppMessage,
+                                                        &Client::HandleEventMessage,
+                                                        &Client::HandlePlayMessage,
+                                                        &Client::HandleMusicPlayMessage,
+                                                        &Client::HandleWidgetMessage}"
+                :type ("Client::Handler" type (:type "class") nil nil))
+                nil [802 1565])
+            ("Client::HDFS_level_array" variable
+               (:dereference 1
+                :default-value "{tracker_severity_level::HDFS_beat_data,
+   tracker_severity_level::HDFS_error_data,
+   tracker_severity_level::no_processed,
+   tracker_severity_level::HDFS_env_data,
+   tracker_severity_level::HDFS_app_data,
+   tracker_severity_level::HDFS_event_data,
+   tracker_severity_level::HDFS_play_data,
+   tracker_severity_level::HDFS_music_play_data,
+   tracker_severity_level::HDFS_widget_data}"
+                :type ("tracker_severity_level" type (:type "class") nil nil))
+                nil [1567 2023])
+            ("Client::sems_handler_array" variable
+               (:dereference 1
+                :default-value "{&Client::HandleSemsBeatMsg,
+                                                 &Client::HandleSemsErrMsg,
+                                                 &Client::HandleSemsLogMsg,
+                                                 &Client::HandleSemsEnvMsg}"
+                :type ("Client::Handler" type (:type "class") nil nil))
+                nil [2479 2784])
+            ("HandleMsg" function
+               (:template 
+                  ( ("T" type (:type "class") nil nil))                  
+                :type "void"
+                :arguments 
+                  ( ("msg" variable
+                       (:reference 1
+                        :type ("T" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2827 2834])
+                    ("str" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("std::string" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2835 2858])
+                    ("level" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("tracker_severity_level" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [2859 2895]))                  
+                :parent "Client")
+                nil [2786 3405])
+            ("Client" function
+               (:constructor-flag t
+                :parent "Client"
+                :arguments 
+                  ( ("s" variable
+                       (:reference 1
+                        :type ("io_service" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [3422 3436]))                  
+                :type ("Client" type (:type "class") nil nil))
+                nil [3407 3556])
+            ("StartJob" function
+               (:parent "Client"
+                :type "void")
+                nil [3558 3990])
+            ("AfterTimeout" function
+               (:parent "Client"
+                :arguments 
+                  ( ("ec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("error_code" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4018 4039]))                  
+                :type "void")
+                nil [3992 4451])
+            ("CloseSocket" function
+               (:parent "Client"
+                :type "void")
+                nil [4453 4512])
+            ("Client" function
+               (:destructor-flag t
+                :parent "Client"
+                :type "void")
+                nil [4514 4607])
+            ("AfterReadHeader" function
+               (:parent "Client"
+                :arguments 
+                  ( ("ec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("error_code" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [4638 4659]))                  
+                :type "void")
+                nil [4609 5294])
+            ("AfterReadBody" function
+               (:parent "Client"
+                :arguments 
+                  ( ("ec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("error_code" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [5323 5344])
+                    ("size" variable (:type ("uint32_t" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [5345 5359]))                  
+                :type "void")
+                nil [5296 7018])
+            ("HandleHeartbeatMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [7020 7207])
+            ("HandleSemsMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [7209 7910])
+            ("HandleLogFile" function
+               (:parent "Client"
+                :type "void")
+                nil [7912 8612])
+            ("HandleAppMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [8614 8774])
+            ("HandleEnvMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [8776 8960])
+            ("HandleEventMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [8962 9136])
+            ("HandlePlayMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [9138 9305])
+            ("HandleMusicPlayMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [9307 9512])
+            ("HandleWidgetMessage" function
+               (:parent "Client"
+                :type "void")
+                nil [9514 9695])
+            ("HandleSemsBeatMsg" function
+               (:parent "Client"
+                :type "void")
+                nil [9697 9879])
+            ("HandleSemsErrMsg" function
+               (:parent "Client"
+                :type "void")
+                nil [9881 10049])
+            ("HandleSemsLogMsg" function
+               (:parent "Client"
+                :type "void")
+                nil [10051 10217])
+            ("HandleSemsEnvMsg" function
+               (:parent "Client"
+                :type "void")
+                nil [10219 10403])
+            ("AfterWriteResponse" function
+               (:parent "Client"
+                :arguments 
+                  ( ("ec" variable
+                       (:reference 1
+                        :constant-flag t
+                        :type ("error_code" type (:type "class") nil nil))
+                        (reparse-symbol arg-sub-list) [10437 10458]))                  
+                :type "void")
+                nil [10405 10637]))          
+      :file "client.cc"
+      :pointmax 10650
+      :fsize 10649
+      :lastmodtime '(21937 47212 480408 121000)
+      :unmatched-syntax nil))
+  :file "!home!olivier!tcplogger!code!main!src!business!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

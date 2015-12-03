@@ -1,8 +1,10 @@
-(when (>= emacs-major-version 24)
-  (require 'package) 
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  )  
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
 
 (require 'tramp)
 (defun sudo ()
@@ -17,22 +19,51 @@
   (interactive)
   )
 
-;; jdee  
-(add-to-list 'load-path "~/.emacs.d/jdee-2.4.1/lisp")  
-(load "jde")  
-;;change jdee hot key
-(defun my-java-jde-mode-hook()  
-;;  (local-set-key (quote [tab]) (quote jde-complete))  
-  (local-set-key (quote [f7]) (quote jde-compile))
-  (local-set-key (quote [f5]) (quote jde-debug))
-  (local-set-key (quote [C-f5]) (quote jde-run)))  
-(add-hook 'java-mode-hook 'my-java-jde-mode-hook)
+;;highligt-parentheses-mode
+(highlight-parentheses-mode t)
+
+;;markdown
+(add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
+(require 'markdown-mode)
+
+;;electirc
+(require 'electric)
+(electric-indent-mode t)
+(electric-pair-mode t)
+(electric-layout-mode t)
+
+;;helm
+(require 'helm-config)
+
+;;eclim
+(require 'eclim)
+(global-eclim-mode)
+
+;; add the emacs-eclim source
+(require 'ac-emacs-eclim-source)
+(ac-emacs-eclim-config)
+
+;;ac
+(ac-config-default)
+
+;;change eclim hot key
+(defun my-eclim-mode-hook()  
+  (local-set-key (quote [f7]) (quote mvn-compile))
+	(local-set-key (quote [f9]) (quote eclim-java-find-declaration))
+	(local-set-key (quote [f10]) (quote eclim-java-find-type))
+	(local-set-key (quote [f8]) (quote eclim-java-format))
+	(local-set-key (quote [f6]) (quote eclim-problems-next))
+	(local-set-key (quote [C-f6]) (quote eclim-problems))
+  (local-set-key (quote [f5]) (quote eclim-java-import-organize
+))
+  (local-set-key (quote [C-f5]) (quote eclim-maven-run)))  
+(add-hook 'eclim-mode-hook 'my-eclim-mode-hook)
 
 (add-to-list 'load-path "~/.emacs.d/")
+
 (require 'color-theme)
-(color-theme-initialize)
-;;(color-theme-charcoal-black)
-(color-theme-deep-blue)
+;;spcaemacse
+(require 'spacemacs-light-theme)
 
 ;;             C  mode
 (add-hook 'c-mode-hook 'hs-minor-mode)
@@ -53,6 +84,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/evil-evil")  
 (load "evil.el")
+
 ;;evil-mode
 (defun my-evil-mode-on ()
   (interactive)
@@ -67,39 +99,31 @@
 (global-set-key (kbd "<f7>") 'smart-compile)
 (defun smart-compile()
   (interactive)
-  ;;  (let ((candidate-make-file-name '("makefile" "Makefile" "GNUmakefile"))
-  ;;      (command nil))
-  ;;    (if (not (null
-  ;;      (find t candidate-make-file-name :key
-  ;;              '(lambda (f) (file-readable-p f)))))
-  ;;    (setq command "./rebuild.lsp")
-  ;;    (if (null (buffer-file-name (current-buffer)))
-  ;;	  (message "Buffer not attached to a file, won't compile!")
-  ;;	(if (eq major-mode 'shell-script-mode)
-  ;;	    (setq command
-  ;;		  (concat "bash "
-  ;;			  (file-name-nondirectory buffer-file-name)))  
   (if (eq major-mode 'python-mode)
       (setq command
 	    (concat "python "
 		    (file-name-nondirectory buffer-file-name)))
-    (if (eq major-mode 'c-mode)
-	(setq command
-	      (concat "gcc -Wall -o "
-		      (file-name-sans-extension
-		       (file-name-nondirectory buffer-file-name))
-		      " "
-		      (file-name-nondirectory buffer-file-name)
-		      " -g -lm "))
-      (if (eq major-mode 'c++-mode)
-	  (setq command			
-		(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
-			(file-name-sans-extension
-			 (file-name-nondirectory buffer-file-name))
-			".cc.o -c "
-			(file-name-nondirectory buffer-file-name)
-			""))
-	(message "Unknow mode, won't compile!"))))
+      (if (eq major-mode 'newlisp-mode)
+	  (setq command
+		(concat "newlisp "
+			(file-name-nondirectory buffer-file-name)))
+	  (if (eq major-mode 'c-mode)
+	      (setq command
+		    (concat "gcc -Wall -o "
+			    (file-name-sans-extension
+			     (file-name-nondirectory buffer-file-name))
+			    " "
+			    (file-name-nondirectory buffer-file-name)
+			    " -g -lm "))
+	      (if (eq major-mode 'c++-mode)
+		  (setq command			
+			(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
+				(file-name-sans-extension
+				 (file-name-nondirectory buffer-file-name))
+				".cc.o -c "
+				(file-name-nondirectory buffer-file-name)
+				""))
+		  (message "Unknow mode, won't compile!")))))
   (compile command))
 
 ;;(ffap-bindings)
@@ -197,10 +221,10 @@
 		  (if mark-active
 		      (kill-ring-save (region-beginning)
 				      (region-end))
-		    (progn
-		      (kill-ring-save (line-beginning-position)
-				      (line-end-position))
-		      (message "copied line")))))
+		      (progn
+			(kill-ring-save (line-beginning-position)
+					(line-end-position))
+			(message "copied line")))))
 
 
 ;; kill region or whole line
@@ -210,62 +234,13 @@
 		  (if mark-active
 		      (kill-region (region-beginning)
 				   (region-end))
-		    (progn
-		      (kill-region (line-beginning-position)
-				   (line-end-position))
-		      (message "killed line")))))
+		      (progn
+			(kill-region (line-beginning-position)
+				     (line-end-position))
+			(message "killed line")))))
 
-
-;;==========================================================  
-;;YASnippet的配置  
-;;==========================================================  
-;;太强大了，强大的模板功能  
-					;(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet-master")
-					;(require 'yasnippet)
-					;(setq yas/prompt-functions 
-;;  '(yas/dropdown-prompt yas/x-prompt yas/completing-prompt yas/ido-prompt yas/no-prompt))
-					;(yas/global-mode 1)
-					;(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用
-
-(add-to-list 'load-path "~/.emacs.d/yasnippet")  
-(require 'yasnippet)  
-
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-(require 'decompile)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins//ac-dict")
-(ac-config-default)
 
 (setq-default cursor-type 'bar) 
-
-(require 'auto-complete-clang)  
-(setq ac-clang-auto-save t)  
-(setq ac-auto-start t)  
-(setq ac-quick-help-delay 0.5)
-
-(defun my-complete ()
-  (interactive)
-  (auto-complete-mode 1))
-(global-set-key (kbd "M-<f9>") 'my-complete)
-
-(defun my-ac-config ()  
-  (setq ac-clang-flags  
-	(mapcar(lambda (item)(concat "-I" item))  
-	       (split-string  
-		"  
-	       ")))  
-  (setq-default ac-sources '(ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))  
-  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)  
-  ;; (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)  
-  ;; (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)  
-  ;;(add-hook 'css-mode-hook 'ac-css-mode-setup)  
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)  
-  (global-auto-complete-mode t))  
-(defun my-ac-cc-mode-setup ()  
-  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))  
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)  
-;; ac-source-gtags  
-(my-ac-config)  
 
 (add-to-list 'load-path' "~/.emacs.d/mylisp/")
 
@@ -291,17 +266,12 @@
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)  
 (require 'flymake-easy)
 (add-hook 'c-mode-hook 'flymake-easy-load)
-;;(load "flymake-clang-c++.el")
-;;(add-hook 'c-mode-common-hook 'flymake-clang-c++-load)
-;;(require 'flymake-cppcheck)
-;;(add-hook 'c-mode-hook 'flymake-cppcheck-load)
-;;(add-hook 'c++-mode-hook 'flymake-cppcheck-load)
 
-(require 'sr-speedbar);;这句话是必须的
-(setq sr-speedbar-width 10)
-(global-set-key (kbd "<f6>") (lambda()
-			       (interactive)
-			       (sr-speedbar-toggle)))
+;;(require 'sr-speedbar);;这句话是必须的
+;;(setq sr-speedbar-width 10)
+;;(global-set-key (kbd "<f6>") (lambda()
+;;			       (interactive)
+;;			       (sr-speedbar-toggle)))
 ;;(add-hook 'after-init-hook '(lambda () (sr-speedbar-toggle)));;开启程序即启用
 
 ;;窗口缩放
@@ -317,18 +287,7 @@
 
 (load "base.el")  
 
-
-
 (put 'scroll-left 'disabled nil)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(jde-jdk-registry (quote (("1.6" . "/usr/lib/jvm/java-7-openjdk-amd64")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+(bookmark-bmenu-list)
+(switch-to-buffer "*Bookmark List*")
