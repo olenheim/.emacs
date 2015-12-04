@@ -207,7 +207,8 @@ has been found."
 (defun eclim-java-format ()
   "Format the source code of the current java source file."
   (interactive)
-  (eclim/execute-command "java_format" "-p" "-f" ("-h" 0) ("-t" (1- (point-max))) "-e"))
+	(revert-buffer-function 'eclim-soft-revert-imports)
+  (eclim/execute-command "java_format" "-p" "-f" ("-h" 0) ("-t" (1- (point-max + 10000-e"))
 
 (defun eclim-java-generate-getter-and-setter (project file offset encoding)
   "Generates getter and setter methods for the symbol at point."

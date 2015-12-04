@@ -1,48 +1,62 @@
-((("letv" .
-	 [2 0 0 0])
-	("f10" .
+((("magit-status" .
+	 [0 0 0 0 0 0 0 0 1 0 0 0])
+	("git" .
 	 [1 0 0])
-	("eclim-java-import-organize" .
-	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0])
-	("eclim-java-imp" .
+	("WalleKafkaInputRecordReader" .
+	 [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("true" .
+	 [2 0 0 1])
+	("Spacemacs" .
+	 [0 0 0 0 0 0 0 0 1])
+	("require" .
+	 [0 0 0 1 0 0 1])
+	("google-java-indent" .
+	 [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("getConfiguration" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
+	("job" .
+	 [2 0 0])
+	("bookmark-bmenu-list" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
+	("bookmark-menu-" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-	("f6" .
+	("bookmark-map" .
+	 [0 0 0 0 0 0 0 0 0 0 0 1])
+	("builder" .
+	 [0 0 0 0 0 0 2])
+	("setSpout" .
+	 [0 0 1 0 0 0 0 0])
+	("mvn" .
+	 [1 0 0])
+	("mvn-compile" .
+	 [1 0 0 0 0 0 0 0 0 0 0])
+	("eclim-maven-run" .
+	 [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
+	("set" .
+	 [1 0 1])
+	("System" .
+	 [0 0 0 1 0 0])
+	("out" .
+	 [1 0 0])
+	("println" .
+	 [0 0 0 0 1 0 0])
+	("f8" .
 	 [1 0])
 	("eclim-java-format" .
 	 [0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0])
-	("f8" .
+	("f6" .
 	 [1 0])
-	("println" .
-	 [0 0 0 0 1 0 0])
-	("out" .
-	 [1 0 0])
-	("System" .
-	 [0 0 0 1 0 0])
-	("set" .
-	 [1 0 1])
-	("eclim-maven-run" .
-	 [0 0 0 0 0 0 0 0 0 0 1 0 0 0 0])
-	("mvn-compile" .
-	 [1 0 0 0 0 0 0 0 0 0 0])
-	("mvn" .
-	 [1 0 0])
-	("setSpout" .
-	 [0 0 1 0 0 0 0 0])
-	("builder" .
-	 [0 0 0 0 0 0 2])
-	("bookmark-map" .
-	 [0 0 0 0 0 0 0 0 0 0 0 1])
-	("bookmark-menu-" .
+	("eclim-java-imp" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-	("bookmark-bmenu-list" .
-	 [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
-	("job" .
-	 [2 0 0])
-	("getConfiguration" .
-	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
-	("google-java-indent" .
-	 [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
-	("require" .
-	 [0 0 0 1 0 0 0])
-	("Spacemacs" .
-	 [0 0 0 0 0 0 0 0 1])))
+	("eclim-java-import-organize" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0 0 0])
+	("f10" .
+	 [1 0 0])
+	("letv" .
+	 [2 0 0 0])
+	("eclim-problems-next-same-window" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+	("indent-region" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 1])
+	("point-min" .
+	 [1 0 0 0 0 0 0 0 0])))

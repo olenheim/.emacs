@@ -513,6 +513,21 @@
   (mvn "clean"))
 
 ;;;###autoload
+(defun mvn-package ()
+  (interactive)
+  (mvn "clean package"))
+
+;;;###autoload
+(defun mvn-eclipse ()
+  (interactive)
+  (mvn "eclipse:eclipse"))
+
+;;;###autoload
+(defun mvn-exec ()
+  (interactive)
+  (mvn "exec:exec"))
+
+;;;###autoload
 (defun mvn-test (prefix)
   (interactive "MTest: ")
   (if prefix

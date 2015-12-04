@@ -10,10 +10,10 @@
 (defun sudo ()
   "reopen current file with sudo."
   (setq sudo-file-real-path
-	(replace-regexp-in-string "\n" ""
-				  (shell-command-to-string (concat "readlink -f " buffer-file-truename))
-				  )
-	)
+				(replace-regexp-in-string "\n" ""
+																	(shell-command-to-string (concat "readlink -f " buffer-file-truename))
+																	)
+				)
   (kill-this-buffer)
   (find-file (concat "/sudo::" sudo-file-real-path))
   (interactive)
@@ -26,11 +26,25 @@
 (add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
 (require 'markdown-mode)
 
+;;git
+(require 'git)
+
 ;;electirc
 (require 'electric)
 (electric-indent-mode t)
 (electric-pair-mode t)
 (electric-layout-mode t)
+
+(defun indent-buffer ()
+  "Indent the whole buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+(global-set-key [f8] 'indent-buffer)
+
+
+;;magit
+(global-set-key [f11] 'magit-status)
 
 ;;helm
 (require 'helm-config)
@@ -38,24 +52,42 @@
 ;;eclim
 (require 'eclim)
 (global-eclim-mode)
+(require 'eclimd)
+
+;;(custom-set-variables
+;;  '(eclim-eclipse-dirs '("/usr/lib/eclipse"))
+;;  '(eclim-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"))
 
 ;; add the emacs-eclim source
 (require 'ac-emacs-eclim-source)
 (ac-emacs-eclim-config)
 
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+
 ;;ac
 (ac-config-default)
+
+(defun restart-eclim ()
+	(interactive)
+	(stop-eclimd)
+	(start-eclimd "~/"))
 
 ;;change eclim hot key
 (defun my-eclim-mode-hook()  
   (local-set-key (quote [f7]) (quote mvn-compile))
 	(local-set-key (quote [f9]) (quote eclim-java-find-declaration))
 	(local-set-key (quote [f10]) (quote eclim-java-find-type))
-	(local-set-key (quote [f8]) (quote eclim-java-format))
-	(local-set-key (quote [f6]) (quote eclim-problems-next))
+	(local-set-key (quote [C-f10]) (quote eclim-java-find-references))
+	(local-set-key (quote [C-f8]) (quote eclim-java-format))
+	(local-set-key (quote [S-f8]) (quote restart-eclim))
+	(local-set-key (quote [f6]) (quote eclim-problems-next-same-window))
+	(local-set-key (quote [S-f6]) (quote eclim-problems-correct
+																			 ))
 	(local-set-key (quote [C-f6]) (quote eclim-problems))
   (local-set-key (quote [f5]) (quote eclim-java-import-organize
-))
+																		 ))
   (local-set-key (quote [C-f5]) (quote eclim-maven-run)))  
 (add-hook 'eclim-mode-hook 'my-eclim-mode-hook)
 
@@ -71,10 +103,10 @@
   (interactive)
   (make-local-variable 'skeleton-pair-alist)
   (setq skeleton-pair-alist  '(
-			       (?` ?` _ "''")
-			       (?\( ?  _ ")")
-			       (?\[ ?  _ "]")
-			       (?{ \n > _ \n ?} >)))
+															 (?` ?` _ "''")
+															 (?\( ?  _ ")")
+															 (?\[ ?  _ "]")
+															 (?{ \n > _ \n ?} >)))
   (setq skeleton-pair t)
   (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
   (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
@@ -101,29 +133,29 @@
   (interactive)
   (if (eq major-mode 'python-mode)
       (setq command
-	    (concat "python "
-		    (file-name-nondirectory buffer-file-name)))
-      (if (eq major-mode 'newlisp-mode)
-	  (setq command
-		(concat "newlisp "
-			(file-name-nondirectory buffer-file-name)))
-	  (if (eq major-mode 'c-mode)
-	      (setq command
-		    (concat "gcc -Wall -o "
-			    (file-name-sans-extension
-			     (file-name-nondirectory buffer-file-name))
-			    " "
-			    (file-name-nondirectory buffer-file-name)
-			    " -g -lm "))
+						(concat "python "
+										(file-name-nondirectory buffer-file-name)))
+		(if (eq major-mode 'newlisp-mode)
+				(setq command
+							(concat "newlisp "
+											(file-name-nondirectory buffer-file-name)))
+			(if (eq major-mode 'c-mode)
+					(setq command
+								(concat "gcc -Wall -o "
+												(file-name-sans-extension
+												 (file-name-nondirectory buffer-file-name))
+												" "
+												(file-name-nondirectory buffer-file-name)
+												" -g -lm "))
 	      (if (eq major-mode 'c++-mode)
-		  (setq command			
-			(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
-				(file-name-sans-extension
-				 (file-name-nondirectory buffer-file-name))
-				".cc.o -c "
-				(file-name-nondirectory buffer-file-name)
-				""))
-		  (message "Unknow mode, won't compile!")))))
+						(setq command			
+									(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
+													(file-name-sans-extension
+													 (file-name-nondirectory buffer-file-name))
+													".cc.o -c "
+													(file-name-nondirectory buffer-file-name)
+													""))
+					(message "Unknow mode, won't compile!")))))
   (compile command))
 
 ;;(ffap-bindings)
@@ -162,8 +194,8 @@
 
 ;;grep-find
 (global-set-key (kbd "C-<f3>") 'grep-find)
-
-(global-set-key (kbd "<f1>") 'shell) 
+(global-set-key (kbd "<f1>") 'shell)
+(global-set-key (kbd "S-<f1>") 'shell-pop) 
 (global-set-key (kbd "<f2>") 'rename-buffer)
 
 ;;multi-window
@@ -175,7 +207,7 @@
 (global-set-key (kbd "M--") 'winner-undo)
 (global-set-key (kbd "M-=") 'winner-redo)
 
-					;全屏
+																				;全屏
 (defun my-fullscreen ()
   (interactive)
   (x-send-client-message
@@ -184,7 +216,7 @@
   )
 (global-set-key [f12] 'my-fullscreen)
 
-					;最大化
+																				;最大化
 (defun my-maximized ()
   (interactive)
   (x-send-client-message
@@ -206,38 +238,31 @@
 (global-set-key (kbd "M-<up>")    'windmove-up)
 (global-set-key (kbd "M-<down>")  'windmove-down)
 
-(defun indent-buffer ()
-  "Indent the whole buffer."
-  (interactive)
-  (save-excursion
-    (indent-region (point-min) (point-max) nil)))
-(global-set-key [f8] 'indent-buffer)
-
 ;;copy free
 ;; copy region or whole line
 (global-set-key "\M-w"
-		(lambda ()
-		  (interactive)
-		  (if mark-active
-		      (kill-ring-save (region-beginning)
-				      (region-end))
-		      (progn
-			(kill-ring-save (line-beginning-position)
-					(line-end-position))
-			(message "copied line")))))
+								(lambda ()
+									(interactive)
+									(if mark-active
+											(kill-ring-save (region-beginning)
+																			(region-end))
+										(progn
+											(kill-ring-save (line-beginning-position)
+																			(line-end-position))
+											(message "copied line")))))
 
 
 ;; kill region or whole line
 (global-set-key "\C-w"
-		(lambda ()
-		  (interactive)
-		  (if mark-active
-		      (kill-region (region-beginning)
-				   (region-end))
-		      (progn
-			(kill-region (line-beginning-position)
-				     (line-end-position))
-			(message "killed line")))))
+								(lambda ()
+									(interactive)
+									(if mark-active
+											(kill-region (region-beginning)
+																	 (region-end))
+										(progn
+											(kill-region (line-beginning-position)
+																	 (line-end-position))
+											(message "killed line")))))
 
 
 (setq-default cursor-type 'bar) 

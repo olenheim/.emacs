@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("wallejob"
+(("kafkaInput"
+ (filename . "~/kafka-hadoop-loader-walle.git/src/main/java/co/gridport/kafka/hadoop/KafkaInputFormat.java")
+ (front-context-string . "      SimpleCons")
+ (rear-context-string . "seed : seeds) {\n")
+ (position . 1535))
+("wallejob"
  (filename . "~/agnes_walle/code/src/main/java/com/letv/WalleJob.java")
  (front-context-string . "package com.letv")
  (rear-context-string)
