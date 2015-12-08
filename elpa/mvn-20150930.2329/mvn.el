@@ -512,7 +512,6 @@
   (interactive)
   (mvn "clean"))
 
-;;;###autoload
 (defun mvn-package ()
   (interactive)
   (mvn "clean package"))

@@ -31,6 +31,11 @@ Run the last maven task in project
 
 \(fn)" t nil)
 
+(autoload 'mvn-package "mvn" "\
+
+
+\(fn)" t nil)
+
 (autoload 'mvn-test "mvn" "\
 
 
