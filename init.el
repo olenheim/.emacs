@@ -141,6 +141,9 @@
 	(local-set-key (quote [C-f5]) (quote mvn-exec)))  
 (add-hook 'eclim-mode-hook 'my-eclim-mode-hook)
 
+;;rainbow in java
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 (add-to-list 'load-path "~/.emacs.d/")
 
 (require 'color-theme)
