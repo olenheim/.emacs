@@ -1,4 +1,5 @@
-;;; package
+;;; package --- Summary
+;;; Commentary:
 ;;; Code:
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
@@ -31,13 +32,13 @@
 
 ;;flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(eval-after-load 'flycheck
-  '(progn
-     (require 'flycheck-google-cpplint)
-     ;; Add Google C++ Style checker.
-     ;; In default, syntax checked by Clang and Cppcheck.
-     (flycheck-add-next-checker 'c/c++-cppcheck
-                                '(warnings-only . c/c++-googlelint))))
+;; (eval-after-load 'flycheck
+;;   '(progn
+;;      (require 'flycheck-google-cpplint)
+;;      ;; Add Google C++ Style checker.
+;;      ;; In default, syntax checked by Clang and Cppcheck.
+;;      (flycheck-add-next-checker 'c/c++-cppcheck
+;;                                 '(warnings-only . c/c++-googlelint))))
 
 ;;flymake
 (require 'flymake-easy)
