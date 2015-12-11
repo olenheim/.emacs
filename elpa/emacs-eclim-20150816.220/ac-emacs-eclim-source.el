@@ -43,20 +43,21 @@
   :group 'auto-complete)
 
 (ac-define-source emacs-eclim
-                  '((candidates . eclim--completion-candidates)
-                    (action . ac-emacs-eclim-action)
-                    (prefix . eclim-completion-start)
-                    (document . eclim--completion-documentation)
-                    (cache)
-                    (selection-face . ac-emacs-eclim-selection-face)
-                    (candidate-face . ac-emacs-eclim-candidate-face)
-                    (symbol . "f")))
+	'((candidates . eclim--completion-candidates)
+		(action . ac-emacs-eclim-action)
+		(prefix . eclim-completion-start)
+		(document . eclim--completion-documentation)
+		(cache)
+		(selection-face . ac-emacs-eclim-selection-face)
+		(candidate-face . ac-emacs-eclim-candidate-face)
+		(symbol . "f")))
 
 (defun ac-emacs-eclim-action ()
   (eclim--completion-action eclim--completion-start (point)))
 
 (defun ac-emacs-eclim-java-setup ()
-  (add-to-list 'ac-sources 'ac-source-emacs-eclim))
+	;;	(add-to-list 'ac-sources 'ac-source-emacs-eclim)
+	)
 
 (defun ac-emacs-eclim-xml-setup ()
   (add-to-list 'ac-sources 'ac-source-emacs-eclim))

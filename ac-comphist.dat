@@ -1,4 +1,20 @@
-((("magit-status" .
+((("__bos0" .
+	 [1 0 0 0 0 0])
+	("monokai" .
+	 [0 0 0 0 0 0 1])
+	("load-theme" .
+	 [0 0 0 0 0 0 0 0 0 1])
+	("setq" .
+	 [2 0 0 0])
+	("get" .
+	 [2 0 1])
+	("JobHistoryEvent - org.apache.hadoop.mapreduce.jobhistory" .
+	 [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("getBytes" .
+	 [0 0 0 0 1 0 0 1])
+	("mvn-packaging-plugins" .
+	 [0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0])
+	("magit-status" .
 	 [0 0 0 0 0 0 0 0 1 0 0 0])
 	("git" .
 	 [1 0 0])
@@ -9,13 +25,13 @@
 	("Spacemacs" .
 	 [0 0 0 0 0 0 0 0 1])
 	("require" .
-	 [0 0 0 1 0 0 1])
+	 [0 0 0 1 0 0 3])
 	("google-java-indent" .
 	 [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
 	("getConfiguration" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1])
 	("job" .
-	 [2 0 0])
+	 [5 0 0])
 	("bookmark-bmenu-list" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0])
 	("bookmark-menu-" .
@@ -27,7 +43,7 @@
 	("setSpout" .
 	 [0 0 1 0 0 0 0 0])
 	("mvn" .
-	 [1 0 0])
+	 [1 0 1])
 	("mvn-compile" .
 	 [1 0 0 0 0 0 0 0 0 0 0])
 	("eclim-maven-run" .
@@ -59,4 +75,40 @@
 	("indent-region" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 1])
 	("point-min" .
-	 [1 0 0 0 0 0 0 0 0])))
+	 [1 0 0 0 0 0 0 0 0])
+	("p" .
+	 [1])
+	("parserType" .
+	 [1 0 0 0 0 0 0 0 0 1])
+	("import" .
+	 [0 0 0 0 0 1])
+	("org" .
+	 [1 0 0])
+	("com" .
+	 [1 0 0])
+	("recent-jump" .
+	 [0 0 0 0 0 0 0 1 0 0 0])
+	("ts" .
+	 [2 0])
+	("Long" .
+	 [1 0 0 0])
+	("valueOf" .
+	 [0 0 0 0 0 0 1])
+	("Logger" .
+	 [1 0 0 0 0 0])
+	("log" .
+	 [1 0 0])
+	("global" .
+	 [0 0 0 0 0 1])
+	("rainbow-delimiters-" .
+	 [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("rainbow-delimiters-mode-enable" .
+	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
+	("java" .
+	 [1 0 0 0])
+	("help" .
+	 [1 0 0 0])
+	("/brokers/topics/app_request/partitions/7/state" .
+	 [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("void" .
+	 [1 0 0 0])))
