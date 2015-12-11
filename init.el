@@ -1,3 +1,5 @@
+;;; package
+;;; Code:
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
@@ -5,6 +7,8 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
+
+(add-to-list 'load-path "~/.emacs.d/")
 
 (require 'tramp)
 (defun sudo ()
@@ -25,12 +29,82 @@
 ;;comment
 (evilnc-default-hotkeys)
 
-;;markdown
-(add-to-list 'load-path "~/.emacs.d/emacs-goodies-el")
-(require 'markdown-mode)
+;;flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(eval-after-load 'flycheck
+  '(progn
+     (require 'flycheck-google-cpplint)
+     ;; Add Google C++ Style checker.
+     ;; In default, syntax checked by Clang and Cppcheck.
+     (flycheck-add-next-checker 'c/c++-cppcheck
+                                '(warnings-only . c/c++-googlelint))))
+
+;;flymake
+(require 'flymake-easy)
+(require 'flymake-google-cpplint)
+(add-hook 'c++-mode-hook 'flymake-google-cpplint-load)
+
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+;; If you want the RETURN key to go to the next line and space over
+;; to the right place, add this to your .emacs right after the load-file:
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 
 ;;mvn
 (require 'mvn)
+
+;;ac
+(ac-config-default)
+
+;;ac-clang
+(require 'ac-clang)
+(ac-clang-initialize)
+
+;;(require 'function-args)
+;;(fa-config-default)
+
+;; ;;cpp
+;; (require 'cpputils-cmake)
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (if (derived-mode-p 'c-mode 'c++-mode)
+;;                 (cppcm-reload-all)
+;;               )))
+;; ;; OPTIONAL, somebody reported that they can use this package with Fortran
+;; (add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
+;; ;; OPTIONAL, avoid typing full path when starting gdb
+;; (global-set-key (kbd "C-c C-g")
+;; 								'(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
+;; ;; OPTIONAL, some users need specify extra flags forwarded to compiler
+;; (setq cppcm-extra-preprocss-flags-from-user '("-I/usr/src/linux/include" "-DNDEBUG"))
+
+;; ;;irony
+;; (add-hook 'c++-mode-hook 'irony-mode)
+;; (add-hook 'c-mode-hook 'irony-mode)
+;; (add-hook 'objc-mode-hook 'irony-mode)
+
+;; ;; replace the `completion-at-point' and `complete-symbol' bindings in
+;; ;; irony-mode's buffers by irony-mode's function
+;; (defun my-irony-mode-hook ()
+;;   (define-key irony-mode-map [remap completion-at-point]
+;;     'irony-completion-at-point-async)
+;;   (define-key irony-mode-map [remap complete-symbol]
+;;     'irony-completion-at-point-async))
+;; (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+;; (require 'ac-irony)
+;; ;;ac-irony
+;; (defun my-ac-irony-setup ()
+;;   ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
+;;   ;; *may* persist after an expansion.
+;;   (yas-minor-mode 1)
+;;   (auto-complete-mode 1)
+
+;; (add-to-list 'ac-sources 'ac-source-irony)
+;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
+
+;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
 ;;electirc
 (require 'electric)
@@ -76,7 +150,7 @@
 
 ;;eclim
 (require 'eclim)
-(global-eclim-mode)
+;;(global-eclim-mode)
 (require 'eclimd)
 
 ;;(require 'company)
@@ -88,13 +162,6 @@
 ;;(custom-set-variables
 ;;  '(eclim-eclipse-dirs '("/usr/lib/eclipse"))
 ;;  '(eclim-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"))
-
-;;ac
-(ac-config-default)
-
-;; add the emacs-eclim source
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
 
 
 (setq help-at-pt-display-when-idle t)
@@ -124,6 +191,10 @@
 
 ;;change eclim hot key
 (defun my-eclim-mode-hook()
+	;; add the emacs-eclim source
+	(require 'ac-emacs-eclim-source)
+	(ac-emacs-eclim-config)
+
   (local-set-key (quote [f7]) (quote mvn-compile))
 	(local-set-key (quote [f9]) (quote eclim-java-find-declaration))
 	(local-set-key (quote [C-f9]) (quote eclim-java-find-type))
@@ -144,29 +215,10 @@
 ;;rainbow in java
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-(add-to-list 'load-path "~/.emacs.d/")
-
 (require 'color-theme)
 ;;spcaemacse
 ;;(require 'spacemacs-light-theme)
 (load-theme 'monokai t)
-
-;;             C  mode
-(add-hook 'c-mode-hook 'hs-minor-mode)
-(defun my-c-mode-auto-pair ()
-  (interactive)
-  (make-local-variable 'skeleton-pair-alist)
-  (setq skeleton-pair-alist  '(
-															 (?` ?` _ "''")
-															 (?\( ?  _ ")")
-															 (?\[ ?  _ "]")
-															 (?{ \n > _ \n ?} >)))
-  (setq skeleton-pair t)
-  (local-set-key (kbd "(") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "{") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "`") 'skeleton-pair-insert-maybe)
-  (local-set-key (kbd "[") 'skeleton-pair-insert-maybe))
-(add-hook 'c-mode-hook 'my-c-mode-auto-pair)
 
 (add-to-list 'load-path "~/.emacs.d/evil-evil")  
 (load "evil.el")
@@ -343,19 +395,6 @@
 
 (load "window-numbering.el")
 (window-numbering-mode 1)
-
-(load "google-c-style.el")  
-(add-hook 'c-mode-common-hook 'google-set-c-style)  
-(add-hook 'c-mode-common-hook 'google-make-newline-indent)  
-(require 'flymake-easy)
-(add-hook 'c-mode-hook 'flymake-easy-load)
-
-;;(require 'sr-speedbar);;这句话是必须的
-;;(setq sr-speedbar-width 10)
-;;(global-set-key (kbd "<f6>") (lambda()
-;;			       (interactive)
-;;			       (sr-speedbar-toggle)))
-;;(add-hook 'after-init-hook '(lambda () (sr-speedbar-toggle)));;开启程序即启用
 
 ;;窗口缩放
 (require 'windresize)      

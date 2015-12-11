@@ -1,4 +1,10 @@
-((("java" .
+((("void" .
+	 [1 0 0 0])
+	("/brokers/topics/app_request/partitions/7/state" .
+	 [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+	("help" .
+	 [1 0 0 0])
+	("java" .
 	 [1 0 0 0])
 	("rainbow-delimiters-mode-enable" .
 	 [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0])
@@ -97,10 +103,12 @@
 	("JobHistoryEvent - org.apache.hadoop.mapreduce.jobhistory" .
 	 [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
 	("get" .
-	 [0 0 1])
+	 [2 0 1])
 	("setq" .
 	 [2 0 0 0])
 	("load-theme" .
 	 [0 0 0 0 0 0 0 0 0 1])
 	("monokai" .
-	 [0 0 0 0 0 0 1])))
+	 [0 0 0 0 0 0 1])
+	("__bos0" .
+	 [1 0 0 0 0 0])))
