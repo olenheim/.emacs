@@ -11,9 +11,12 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 
+(abbrev-mode nil)
+
 (require 'tramp)
 (defun sudo ()
   "reopen current file with sudo."
+	(defvar sudo-file-real-path)
   (setq sudo-file-real-path
 				(replace-regexp-in-string "\n" ""
 																	(shell-command-to-string (concat "readlink -f " buffer-file-truename))
@@ -21,29 +24,54 @@
 				)
   (kill-this-buffer)
   (find-file (concat "/sudo::" sudo-file-real-path))
-  (interactive)
   )
+
+;;helm proj
+(projectile-global-mode)
+(require 'helm-projectile)
+(helm-projectile-on)
 
 ;;highligt-parentheses-mode
 (highlight-parentheses-mode t)
+
+;;shut up
+(when noninteractive
+  (shut-up-silence-emacs))
 
 ;;comment
 (evilnc-default-hotkeys)
 
 ;;flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;; (eval-after-load 'flycheck
-;;   '(progn
-;;      (require 'flycheck-google-cpplint)
-;;      ;; Add Google C++ Style checker.
-;;      ;; In default, syntax checked by Clang and Cppcheck.
-;;      (flycheck-add-next-checker 'c/c++-cppcheck
-;;                                 '(warnings-only . c/c++-googlelint))))
 
-;;flymake
-(require 'flymake-easy)
-(require 'flymake-google-cpplint)
-(add-hook 'c++-mode-hook 'flymake-google-cpplint-load)
+(require 'flycheck-color-mode-line)
+
+(eval-after-load "flycheck"
+  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
+(require 'flycheck-status-emoji)
+
+(eval-after-load 'flycheck
+ 	'(progn
+ 		 (require 'flycheck-google-cpplint)
+ 		 ;; Add Google C++ Style checker.
+ 		 ;; In default, syntax checked by Clang and Cppcheck.
+ 		 (flycheck-add-next-checker 'c/c++-clang
+ 																'c/c++-googlelint 'append)))
+
+(require 'helm-flycheck) ;; Not necessary if using ELPA package
+(eval-after-load 'flycheck
+  '(define-key flycheck-mode-map (kbd "C-<f6>") 'helm-flycheck))
+
+(custom-set-variables
+;; '(flycheck-googlelint-verbose "3")
+;; '(flycheck-googlelint-filter "-whitespace,+whitespace/braces")
+;; '(flycheck-googlelint-root "project/src")
+ '(flycheck-googlelint-linelength "120"))
+
 
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 ;; If you want the RETURN key to go to the next line and space over
@@ -61,52 +89,6 @@
 (require 'ac-clang)
 (ac-clang-initialize)
 
-;;(require 'function-args)
-;;(fa-config-default)
-
-;; ;;cpp
-;; (require 'cpputils-cmake)
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (if (derived-mode-p 'c-mode 'c++-mode)
-;;                 (cppcm-reload-all)
-;;               )))
-;; ;; OPTIONAL, somebody reported that they can use this package with Fortran
-;; (add-hook 'c90-mode-hook (lambda () (cppcm-reload-all)))
-;; ;; OPTIONAL, avoid typing full path when starting gdb
-;; (global-set-key (kbd "C-c C-g")
-;; 								'(lambda ()(interactive) (gud-gdb (concat "gdb --fullname " (cppcm-get-exe-path-current-buffer)))))
-;; ;; OPTIONAL, some users need specify extra flags forwarded to compiler
-;; (setq cppcm-extra-preprocss-flags-from-user '("-I/usr/src/linux/include" "-DNDEBUG"))
-
-;; ;;irony
-;; (add-hook 'c++-mode-hook 'irony-mode)
-;; (add-hook 'c-mode-hook 'irony-mode)
-;; (add-hook 'objc-mode-hook 'irony-mode)
-
-;; ;; replace the `completion-at-point' and `complete-symbol' bindings in
-;; ;; irony-mode's buffers by irony-mode's function
-;; (defun my-irony-mode-hook ()
-;;   (define-key irony-mode-map [remap completion-at-point]
-;;     'irony-completion-at-point-async)
-;;   (define-key irony-mode-map [remap complete-symbol]
-;;     'irony-completion-at-point-async))
-;; (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-;; (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-;; (require 'ac-irony)
-;; ;;ac-irony
-;; (defun my-ac-irony-setup ()
-;;   ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
-;;   ;; *may* persist after an expansion.
-;;   (yas-minor-mode 1)
-;;   (auto-complete-mode 1)
-
-;; (add-to-list 'ac-sources 'ac-source-irony)
-;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
-
-;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
-
 ;;electirc
 (require 'electric)
 (electric-indent-mode t)
@@ -114,10 +96,10 @@
 (electric-layout-mode t)
 
 (defun indent-buffer ()
-  "Indent the whole buffer."
-  (interactive)
-  (save-excursion
-    (indent-region (point-min) (point-max) nil)))
+	"Indent the whole buffer."
+	(interactive)
+	(save-excursion
+		(indent-region (point-min) (point-max) nil)))
 (global-set-key [f8] 'indent-buffer)
 
 
@@ -139,13 +121,13 @@
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 (when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
+	(setq helm-google-suggest-use-curl-p t))
 
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t)
+			helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+			helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+			helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+			helm-ff-file-name-history-use-recentf t)
 
 (helm-mode 1)
 
@@ -190,13 +172,29 @@
 	(stop-eclimd)
 	(start-eclimd "~/"))
 
+(defun compile-dot()
+	(interactive)
+	(setq msg	(concat graphviz-dot-dot-program
+										" -T" graphviz-dot-preview-extension " "
+										(shell-quote-argument buffer-file-name)
+										" -o "
+										(shell-quote-argument
+										 (concat (file-name-sans-extension buffer-file-name)
+														 "." graphviz-dot-preview-extension))))
+	(compile msg))
+
+(defun my-graph-dot-mode-hook()
+	(local-set-key (quote [f5]) (quote compile-dot))
+	(local-set-key (quote [f7]) (quote graphviz-dot-preview)))
+(add-hook 'graphviz-dot-mode-hook 'my-graph-dot-mode-hook)
+
 ;;change eclim hot key
 (defun my-eclim-mode-hook()
 	;; add the emacs-eclim source
 	(require 'ac-emacs-eclim-source)
 	(ac-emacs-eclim-config)
 
-  (local-set-key (quote [f7]) (quote mvn-compile))
+	(local-set-key (quote [f7]) (quote mvn-compile))
 	(local-set-key (quote [f9]) (quote eclim-java-find-declaration))
 	(local-set-key (quote [C-f9]) (quote eclim-java-find-type))
 	(local-set-key (quote [S-f9]) (quote eclim-java-find-references))
@@ -216,7 +214,7 @@
 ;;rainbow in java
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-(require 'color-theme)
+;;(require 'color-theme)
 ;;spcaemacse
 ;;(require 'spacemacs-light-theme)
 (load-theme 'monokai t)
@@ -226,20 +224,20 @@
 
 ;;evil-mode
 (defun my-evil-mode-on ()
-  (interactive)
-  (evil-mode 1)
-  (setq cursor-type 'bar))
+	(interactive)
+	(evil-mode 1)
+	(setq cursor-type 'bar))
 
 (defun my-evil-mode-off ()
-  (interactive)
-  (evil-mode 0)
-  (setq cursor-type 'bar))
+	(interactive)
+	(evil-mode 0)
+	(setq cursor-type 'bar))
 
 (global-set-key (kbd "<f7>") 'smart-compile)
 (defun smart-compile()
-  (interactive)
-  (if (eq major-mode 'python-mode)
-      (setq command
+	(interactive)
+	(if (eq major-mode 'python-mode)
+			(setq command
 						(concat "python "
 										(file-name-nondirectory buffer-file-name)))
 		(if (eq major-mode 'newlisp-mode)
@@ -254,7 +252,7 @@
 												" "
 												(file-name-nondirectory buffer-file-name)
 												" -g -lm "))
-	      (if (eq major-mode 'c++-mode)
+				(if (eq major-mode 'c++-mode)
 						(setq command			
 									(concat "c++ -g -std=c++11 -I../include -I../../include -I../../../include -I/usr/local/include  -Wall -DBOOST_LOG_DYN_LINK -o "
 													(file-name-sans-extension
@@ -263,28 +261,27 @@
 													(file-name-nondirectory buffer-file-name)
 													""))
 					(message "Unknow mode, won't compile!")))))
-  (compile command))
+	(compile command))
 
 ;;(ffap-bindings)
-(setq ffap-c-path
-      '("/usr/include" "/usr/local/include"))
+(setq ffap-c-path '("/usr/include" "/usr/local/include"))
 (setq ffap-newfile-prompt t)
 (setq ffap-kpathsea-depth 5)
 
 (setq ff-search-directories
-      '("../src/*" "../include/*" "../../src/*" "../../include/*" "../../../src/*" "../../../include/*" "."))
+			'("../src/*" "../include/*" "../../src/*" "../../include/*" "../../../src/*" "../../../include/*" "."))
 
 (defvar my-cpp-other-file-alist
-  '(("\\.cpp\\'" (".hpp" ".ipp"))
-    ("\\.ipp\\'" (".hpp" ".cpp"))
-    ("\\.hpp\\'" (".ipp" ".cpp"))
-    ("\\.cxx\\'" (".hxx" ".ixx"))
-    ("\\.ixx\\'" (".cxx" ".hxx"))
-    ("\\.hxx\\'" (".ixx" ".cxx"))
-    ("\\.c\\'" (".h"))
-    ("\\.cc\\'" (".h"))
-    ("\\.h\\'" (".cc" ".c"))
-    ))
+	'(("\\.cpp\\'" (".hpp" ".ipp"))
+		("\\.ipp\\'" (".hpp" ".cpp"))
+		("\\.hpp\\'" (".ipp" ".cpp"))
+		("\\.cxx\\'" (".hxx" ".ixx"))
+		("\\.ixx\\'" (".cxx" ".hxx"))
+		("\\.hxx\\'" (".ixx" ".cxx"))
+		("\\.c\\'" (".h"))
+		("\\.cc\\'" (".h"))
+		("\\.h\\'" (".cc" ".c"))
+		))
 
 (setq-default ff-other-file-alist 'my-cpp-other-file-alist)
 
@@ -316,23 +313,23 @@
 
 																				;全屏
 (defun my-fullscreen ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-  )
+	(interactive)
+	(x-send-client-message
+	 nil 0 nil "_NET_WM_STATE" 32
+	 '(2 "_NET_WM_STATE_FULLSCREEN" 0))
+	)
 (global-set-key [f12] 'my-fullscreen)
 
 																				;最大化
 (defun my-maximized ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
+	(interactive)
+	(x-send-client-message
+	 nil 0 nil "_NET_WM_STATE" 32
+	 '(1 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
+	(interactive)
+	(x-send-client-message
+	 nil 0 nil "_NET_WM_STATE" 32
+	 '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 
 (my-maximized) 
 (tool-bar-mode 0)

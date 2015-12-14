@@ -84,7 +84,7 @@
   (local-set-key [f10] 'gud-next)
   (local-set-key [C-f10] 'gud-until)
   (local-set-key [S-f10] 'gud-jump)
-  (local-set-key [f11] 'gud-step)
+  (local-set-key [S-f11] 'gud-step)
   (local-set-key [C-f11] 'gud-finish)
   )
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
