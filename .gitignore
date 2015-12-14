@@ -1,5 +1,9 @@
 *.elc
-/elpa/color-theme-sanityinc-solarized-20150803.1420/color-theme-sanityinc-solarized-autoloads.el
 *.elc
 *.xmi
 /recentf
+*.dat
+*~
+*.stackdump
+/server/server
+/server/server17280
