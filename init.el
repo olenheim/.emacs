@@ -64,10 +64,10 @@
 
 ;;(ycmd-global-config nil)
 ;;(ycmd-server-command (quote ("python" "~/ycmd/ycmd")))  
-(set-variable 'ycmd-server-command '("python" "/home/olivier/ycmd/ycmd/"))
+;;(set-variable 'ycmd-server-command '("python" "/home/olivier/ycmd/ycmd/"))
 ;;(set-variable 'ycmd-server-command '("python" "~/ycmd/ycmd/))
-(set-variable 'ycmd-global-config "/home/olivier/ycmd/cpp/ycm/.ycm_extra_conf.py")
-(set-variable 'ycmd-extra-conf-whitelist '("/home/olivier/tomongo/*"))
+;;(set-variable 'ycmd-global-config "/home/olivier/ycmd/cpp/ycm/.ycm_extra_conf.py")
+;;(set-variable 'ycmd-extra-conf-whitelist '("/home/olivier/tomongo/*"))
 ;;(require 'company-ycmd)
 ;;(company-ycmd-setup)
 ;;(require 'flycheck-ycmd)

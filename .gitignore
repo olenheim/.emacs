@@ -9,3 +9,7 @@
 *.stackdump
 /server/server
 /server/server17280
+*.dat
+*.dat
+ac-comphist.dat
+*.txt

@@ -34,7 +34,7 @@
 ;;设置字体，默认是Monospace  
 ;;set-defalut-font 
 ;;(set-default-font "Monospace")  
-(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")  ;;个人感觉Mono系字体适合程序（对普通青年）  
+;;(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")  ;;个人感觉Mono系字体适合程序（对普通青年）  
 
 ;;custom-set-variables  
 ;;set-color  
