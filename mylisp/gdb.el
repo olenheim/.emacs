@@ -1,19 +1,19 @@
 ;;gdb debug 设置
 (setq bin_path "")
-(setq gdb_command (concat "gdb -i=mi ~/tcplogger/code/main/builder/bin/tcplogger_d"))
+(setq gdb_command (concat "gdb -i=mi ~/tomongo/builder/bin/tomongo  ../../test.conf"))
 
 (defun prj-compile()
 (interactive)
 (if (eq major-mode 'c++-mode)
   (setq command			
-	    (concat "cd ~/tcplogger/code/main/builder/ && ./rebuild.lsp"))
+	    (concat "cd ~/tomongo/builder/ && ./rebuild.lsp"))
   (message "Unknow mode, won't compile!"))
 (compile command))
 (defun compile-run()
   (interactive)
   (if (eq major-mode 'c++-mode)
       (setq command			
-	    (concat "cd ~/tcplogger/code/main/builder/ && ./rebuild.lsp && cd bin && ./tcplogger_d ../../config_dev.xml"))
+	    (concat "cd ~/tomongo/builder/ && ./rebuild.lsp && cd bin && ./tomongo ../../test.conf"))
     (message "Unknow mode, won't compile!"))
   (compile command))
 (defun gdb-or-gud-go ()

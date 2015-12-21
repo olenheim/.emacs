@@ -23,13 +23,64 @@
 																	)
 				)
   (kill-this-buffer)
+	(interactive)
   (find-file (concat "/sudo::" sudo-file-real-path))
   )
+
+
+;; ace jump mode major function
+;; 
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+;; you can select the key you prefer to
+(define-key global-map (kbd "M-s") 'ace-jump-mode)
+
+;; 
+;; enable a more powerful jump back function from ace jump mode
+;;
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+
+ ;;;;;;;;;;;;;;;;;;;;;;;company;;;;;;;;;;;;;;;;;;
+;;(add-hook 'after-init-hook #'global-company-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;flycheck;;;;;;;;;;;;;;;;
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;;;;;;;;;;;;;;;;;;emacs-ycmd;;;;;;;;;;;;;;;;;;;
+(require 'ycmd)
+(add-hook 'c++-mode-hook 'ycmd-mode)
+(add-hook 'c++-mode-hook 'company-mode)
+;;(add-hook 'after-init-hook #'global-ycmd-mode)
+;;(ycmd-force-semantic-completion t)
+
+;;(ycmd-global-config nil)
+;;(ycmd-server-command (quote ("python" "~/ycmd/ycmd")))  
+(set-variable 'ycmd-server-command '("python" "/home/olivier/ycmd/ycmd/"))
+;;(set-variable 'ycmd-server-command '("python" "~/ycmd/ycmd/))
+(set-variable 'ycmd-global-config "/home/olivier/ycmd/cpp/ycm/.ycm_extra_conf.py")
+(set-variable 'ycmd-extra-conf-whitelist '("/home/olivier/tomongo/*"))
+;;(require 'company-ycmd)
+;;(company-ycmd-setup)
+;;(require 'flycheck-ycmd)
+;;(flycheck-ycmd-setup)
 
 ;;helm proj
 (projectile-global-mode)
 (require 'helm-projectile)
 (helm-projectile-on)
+
+;;neotree
+(require 'neotree)
+(global-set-key [S-f12] 'neotree-toggle)
 
 ;;highligt-parentheses-mode
 (highlight-parentheses-mode t)
@@ -67,10 +118,19 @@
   '(define-key flycheck-mode-map (kbd "C-<f6>") 'helm-flycheck))
 
 (custom-set-variables
-;; '(flycheck-googlelint-verbose "3")
-;; '(flycheck-googlelint-filter "-whitespace,+whitespace/braces")
-;; '(flycheck-googlelint-root "project/src")
- '(flycheck-googlelint-linelength "120"))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-backends (quote (company-clang company-dabbrev)))
+ '(custom-safe-themes
+	 (quote
+		("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "196cc00960232cfc7e74f4e95a94a5977cb16fd28ba7282195338f68c84058ec" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" default)))
+ '(flycheck-clang-include-path (quote ("/home/olivier/tomongo/include")))
+ '(flycheck-googlelint-linelength "120")
+ '(nrepl-message-colors
+	 (quote
+		("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))))
 
 
 (add-hook 'c-mode-common-hook 'google-set-c-style)
@@ -86,8 +146,8 @@
 (ac-config-default)
 
 ;;ac-clang
-(require 'ac-clang)
-(ac-clang-initialize)
+;;(require 'ac-clang)
+;;(ac-clang-initialize)
 
 ;;electirc
 (require 'electric)
@@ -193,7 +253,7 @@
 	;; add the emacs-eclim source
 	(require 'ac-emacs-eclim-source)
 	(ac-emacs-eclim-config)
-
+	(flycheck-mode 0)
 	(local-set-key (quote [f7]) (quote mvn-compile))
 	(local-set-key (quote [f9]) (quote eclim-java-find-declaration))
 	(local-set-key (quote [C-f9]) (quote eclim-java-find-type))
@@ -331,7 +391,7 @@
 	 nil 0 nil "_NET_WM_STATE" 32
 	 '(1 "_NET_WM_STATE_MAXIMIZED_VERT" 0)))
 
-(my-maximized) 
+;;(my-maximized) 
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
@@ -373,10 +433,9 @@
 
 (add-to-list 'load-path' "~/.emacs.d/mylisp/")
 
-;;recent-jump
-(require 'recent-jump)
-(global-set-key (kbd "M-{") 'recent-jump-jump-backward)
-(global-set-key (kbd "M-}") 'recent-jump-jump-forward)
+;;goto-last-change
+(global-set-key (kbd "M-{") 'goto-last-change)
+(global-set-key (kbd "M-}") 'goto-last-change-reverse)
 
 (load "gdb.el")
 (load "highlight-symbol.el")
@@ -411,17 +470,7 @@
 
 (bookmark-bmenu-list)
 (switch-to-buffer "*Bookmark List*")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-	 (quote
-		("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "196cc00960232cfc7e74f4e95a94a5977cb16fd28ba7282195338f68c84058ec" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" default)))
- '(nrepl-message-colors
-	 (quote
-		("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
