@@ -27,6 +27,29 @@
   (find-file (concat "/sudo::" sudo-file-real-path))
   )
 
+;; aggressive indent
+(global-aggressive-indent-mode 1)
+(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+
+;;golden
+;;(golden-ratio-mode t)
+
+;;tramp
+
+
+;;volatile-highlights
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
+
+;;highlight-number
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
+
+;;indent guide
+(indent-guide-mode t)
+
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
 
 ;; ace jump mode major function
 ;; 
@@ -56,9 +79,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;flycheck;;;;;;;;;;;;;;;;
 ;;(add-hook 'after-init-hook #'global-flycheck-mode)
 ;;;;;;;;;;;;;;;;;;;emacs-ycmd;;;;;;;;;;;;;;;;;;;
-(require 'ycmd)
-(add-hook 'c++-mode-hook 'ycmd-mode)
-(add-hook 'c++-mode-hook 'company-mode)
+;;(require 'ycmd)
+;;(add-hook 'c++-mode-hook 'ycmd-mode)
+;;(add-hook 'c++-mode-hook 'company-mode)
 ;;(add-hook 'after-init-hook #'global-ycmd-mode)
 ;;(ycmd-force-semantic-completion t)
 
@@ -122,15 +145,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(company-backends (quote (company-clang company-dabbrev)))
  '(custom-safe-themes
 	 (quote
 		("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "196cc00960232cfc7e74f4e95a94a5977cb16fd28ba7282195338f68c84058ec" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "f5eb916f6bd4e743206913e6f28051249de8ccfd070eae47b5bde31ee813d55f" default)))
+ '(display-time-mode t)
  '(flycheck-clang-include-path (quote ("/home/olivier/tomongo/include")))
  '(flycheck-googlelint-linelength "120")
  '(nrepl-message-colors
 	 (quote
-		("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))))
+		("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 
 
 (add-hook 'c-mode-common-hook 'google-set-c-style)
@@ -155,6 +182,8 @@
 (electric-pair-mode t)
 (electric-layout-mode t)
 
+(indent-guide-global-mode)(indent-guide-global-mode)
+
 (defun indent-buffer ()
 	"Indent the whole buffer."
 	(interactive)
@@ -162,6 +191,8 @@
 		(indent-region (point-min) (point-max) nil)))
 (global-set-key [f8] 'indent-buffer)
 
+;; indent-guide
+(indent-guide-global-mode)
 
 ;;magit
 (global-set-key [f11] 'magit-status)
@@ -438,7 +469,6 @@
 (global-set-key (kbd "M-}") 'goto-last-change-reverse)
 
 (load "gdb.el")
-(load "highlight-symbol.el")
 
 (require 'highlight-symbol)
 (global-set-key [f3] 'highlight-symbol-at-point)
@@ -448,9 +478,9 @@
 (global-set-key [(shift f3)] 'highlight-symbol-remove-all)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-(load "sql-indent.el")
+;;(load "sql-indent.el")
 
-(load "window-numbering.el")
+;;(load "window-numbering.el")
 (window-numbering-mode 1)
 
 ;;窗口缩放
@@ -476,4 +506,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans" :foundry "unknown" :slant normal :weight normal :height 120 :width semi-condensed)))))
+
+(provide 'init)
+;;; init.el ends here

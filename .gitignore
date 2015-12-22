@@ -14,3 +14,5 @@
 ac-comphist.dat
 *.txt
 /server/server35272
+*.eld
+/#init.el#

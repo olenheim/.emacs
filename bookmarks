@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("tcplogger"
+(("walle_storm"
+ (filename . "~/agnes_storm/code/src/main/java/com/letv/bigdata/storm/walle/WalleTopology.java")
+ (front-context-string . "package com.letv")
+ (rear-context-string)
+ (position . 1))
+("tcplogger"
  (filename . "~/tcplogger/code/main/src/business/client.cc")
  (front-context-string . "#include \"busine")
  (rear-context-string)
